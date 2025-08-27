@@ -1,7 +1,7 @@
 export default [
   {
     id: 't1',
-    topic: 'capitals',
+    topic: 'capital cities',
     questions: [
       {
         id: 't1q1',
