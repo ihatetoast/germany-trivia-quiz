@@ -1,7 +1,8 @@
 import { useState } from 'react';
 
+import Answers from './Answers.jsx';
 import Button from './Button.jsx';
-
+import Results from './Results.jsx';
 import TOPICS from '../topics.js';
 
 /**
@@ -20,25 +21,41 @@ import TOPICS from '../topics.js';
 
 export default function QuizPage() {
   const [usersAnswers, setUsersAnswers] = useState([]);
+  
+  // setQuix later
   const [quiz, setQuiz] = useState(TOPICS[0].questions);
 
   const currentQuestionIdx = usersAnswers.length;
-  console.log(quiz);
-  // capital cities is first
 
-  const currentAnswerOptions = quiz[currentQuestionIdx].answers.sort(
+
+
+  const quizCompleted = TOPICS[0].questions.length === currentQuestionIdx;
+
+  function handleSelectUserAnswer(answer) {
+    setUsersAnswers((prevUserAnswer) =>{
+      return [...prevUserAnswer, answer]
+    })
+  }
+
+  // Show results when the quiz is done.
+  // we know this when length of possible questions arr
+  // is same as length of user's answers
+
+  if(quizCompleted) {
+    return <Results title={"Quiz is over"}/>
+  }
+
+    // copy the data so sorting does not change og arr
+  const currentAnswerOptions = [...quiz[currentQuestionIdx].answers];
+  currentAnswerOptions.sort(
     () => Math.random() - 0.5
   );
+
   return (
     <div id='quiz-board'>
       <h2>{quiz[currentQuestionIdx].question}</h2>
-      <ul id='answer-options'>
-        {currentAnswerOptions.map((ans, idx) => (
-          <li key={idx + '' + currentQuestionIdx} className='answer'>
-            <Button classes='answer-btn'>{ans}</Button>
-          </li>
-        ))}
-      </ul>
+      <Answers answerOptions={currentAnswerOptions} handleAnswerClick={handleSelectUserAnswer}/>
+      
     </div>
   );
 }
