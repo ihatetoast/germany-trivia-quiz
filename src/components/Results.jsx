@@ -15,7 +15,7 @@ export default function Results({title}) {
       </div>
       <div id="result-answers">
         <img className={classes['germany-map']} src={map} alt="map of Germany showing the states" />
-        <p>maybe this will be unique to quiz</p>
+        <p>maybe this will be unique to quiz theme. to do later. mebbeh</p>
       </div>
     </div>
   )

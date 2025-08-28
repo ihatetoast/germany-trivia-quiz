@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 import Answers from './Answers.jsx';
-import Button from './Button.jsx';
+import Timer from './Timer.jsx';
+
 import Results from './Results.jsx';
 import TOPICS from '../topics.js';
 
@@ -21,41 +22,45 @@ import TOPICS from '../topics.js';
 
 export default function QuizPage() {
   const [usersAnswers, setUsersAnswers] = useState([]);
-  
+
   // setQuix later
   const [quiz, setQuiz] = useState(TOPICS[0].questions);
 
   const currentQuestionIdx = usersAnswers.length;
 
-
-
   const quizCompleted = TOPICS[0].questions.length === currentQuestionIdx;
 
-  function handleSelectUserAnswer(answer) {
-    setUsersAnswers((prevUserAnswer) =>{
-      return [...prevUserAnswer, answer]
-    })
-  }
+  const handleSelectUserAnswer = useCallback(function handleSelectUserAnswer(answer) {
+    setUsersAnswers((prevUserAnswer) => {
+      return [...prevUserAnswer, answer];
+    });
+  },
+  []);
+
+  const handleNotAnswered = useCallback(() => {
+    handleSelectUserAnswer(null);
+  }, [handleSelectUserAnswer]);
 
   // Show results when the quiz is done.
   // we know this when length of possible questions arr
   // is same as length of user's answers
 
-  if(quizCompleted) {
-    return <Results title={"Quiz is over"}/>
+  if (quizCompleted) {
+    return <Results title={'Quiz is over'} />;
   }
 
-    // copy the data so sorting does not change og arr
+  // copy the data so sorting does not change og arr
   const currentAnswerOptions = [...quiz[currentQuestionIdx].answers];
-  currentAnswerOptions.sort(
-    () => Math.random() - 0.5
-  );
+  currentAnswerOptions.sort(() => Math.random() - 0.5);
 
   return (
     <div id='quiz-board'>
+      <Timer key={currentQuestionIdx} duration={10000} onTimesUp={handleNotAnswered} />
       <h2>{quiz[currentQuestionIdx].question}</h2>
-      <Answers answerOptions={currentAnswerOptions} handleAnswerClick={handleSelectUserAnswer}/>
-      
+      <Answers
+        answerOptions={currentAnswerOptions}
+        handleAnswerClick={handleSelectUserAnswer}
+      />
     </div>
   );
 }
