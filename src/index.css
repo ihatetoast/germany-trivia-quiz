@@ -118,19 +118,32 @@ button {
   color: #fff;
   text-decoration: none;
 }
-
+/* fix the black. if wrong answer turn color to red, it is hard to see  */
 .answer-btn {
   background-image: linear-gradient(to right, #000 0%, #859398 51%, #000 100%);
 }
 .answer-btn {
-  transition: 0.5s;
   background-size: 200% auto;
-  color: white;
   box-shadow: 0 0 20px #eee;
+  color: white;
+  font-size: 1.25rem;
+  transition: 0.5s;
 }
 
-.answer-btn:hover{
+.answer-btn:hover {
   background-position: right center; /* change the direction of the change here */
   color: #fff;
   text-decoration: none;
+}
+
+/* figure something else out.  */
+/* font color is just for now to check if clicked and right/wrong work */
+.answer-btn.answered {
+  font-weight: 700;
+}
+.answer-btn.correct {
+  color: #ffcc00;
+}
+.answer-btn.incorrect {
+  color: #dd0000;
 }

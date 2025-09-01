@@ -8,7 +8,7 @@ export default [
         question: 'What is the capital of Baden-Württemberg?',
         answers: [
           'Stuttgart',
-          'Baden-Württemberg is a city-state and it its own capital.',
+          'Baden-Württemberg is a city-state and is its own capital.',
           'Ulm',
           'Heidelberg',
           'Badenschmaden',
@@ -35,7 +35,7 @@ export default [
         id: 't1q3',
         question: 'What is the capital of Berlin?',
         answers: [
-          'Berlin is a city-state and it its own capital',
+          'Berlin is a city-state and is its own capital',
           'Berlinstadt',
           'Ost-West-Berlinerhaven.',
           'Berlinnenstadt',
@@ -50,7 +50,7 @@ export default [
         question: 'What is the capital of Brandenburg?',
         answers: [
           'Potsdam',
-          'Brandenburg is a city-state and it its own capital',
+          'Brandenburg is a city-state and is its own capital',
           'Oranienburg',
           'Petershagen-Eggersdorf',
           'Parisdorf',

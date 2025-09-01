@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 
-import Answers from './Answers.jsx';
-import Timer from './Timer.jsx';
+
+import QuizQuestion from './QuizQuestion.jsx';
 
 import Results from './Results.jsx';
 import TOPICS from '../topics.js';
@@ -23,19 +23,44 @@ import TOPICS from '../topics.js';
 export default function QuizPage() {
   const [usersAnswers, setUsersAnswers] = useState([]);
 
-  // setQuix later
+  // setQuiz later
   const [quiz, setQuiz] = useState(TOPICS[0].questions);
+  // answerstate used for styling purp
+  const [answerState, setAnswerState] = useState('');
 
-  const currentQuestionIdx = usersAnswers.length;
+  // if the question has not been answered, use the answers arr length
+  // if it has been answered, keep the current index at previous to hold off on
+  // advancing to the next. This will let me show quiztaker right/wrong feedback via style
+  const currentQuestionIdx =
+    answerState === '' ? usersAnswers.length : usersAnswers.length - 1;
 
-  const quizCompleted = TOPICS[0].questions.length === currentQuestionIdx;
+  const quizCompleted = quiz.length === currentQuestionIdx;
 
-  const handleSelectUserAnswer = useCallback(function handleSelectUserAnswer(answer) {
-    setUsersAnswers((prevUserAnswer) => {
-      return [...prevUserAnswer, answer];
-    });
-  },
-  []);
+  // useCallback to avoid recreating fcn on rerendering
+  const handleSelectUserAnswer = useCallback(
+    function handleSelectUserAnswer(answer) {
+      setAnswerState('answered');
+      setUsersAnswers((prevUserAnswer) => {
+        return [...prevUserAnswer, answer];
+      });
+
+      // console.log('true answer: ', quiz[currentQuestionIdx].answers[0]);
+      // console.log(('user answer: ', answer));
+
+      setTimeout(() => {
+        if (quiz[currentQuestionIdx].answers[0] === answer) {
+          setAnswerState('correct');
+        } else {
+          setAnswerState('incorrect');
+        }
+        // let the style sit and then reset answerstate to '' to move along
+        setTimeout(() => {
+          setAnswerState('');
+        }, 2000);
+      }, 1000);
+    },
+    [quiz, currentQuestionIdx]
+  );
 
   const handleNotAnswered = useCallback(() => {
     handleSelectUserAnswer(null);
@@ -49,17 +74,13 @@ export default function QuizPage() {
     return <Results title={'Quiz is over'} />;
   }
 
-  // copy the data so sorting does not change og arr
-  const currentAnswerOptions = [...quiz[currentQuestionIdx].answers];
-  currentAnswerOptions.sort(() => Math.random() - 0.5);
-
   return (
     <div id='quiz-board'>
-      <Timer key={currentQuestionIdx} duration={10000} onTimesUp={handleNotAnswered} />
-      <h2>{quiz[currentQuestionIdx].question}</h2>
-      <Answers
-        answerOptions={currentAnswerOptions}
-        handleAnswerClick={handleSelectUserAnswer}
+      <QuizQuestion 
+      key={currentQuestionIdx}
+      idx={currentQuestionIdx}
+      onNotAnswered={handleNotAnswered}
+      handleAnswerClick={handleSelectUserAnswer}
       />
     </div>
   );

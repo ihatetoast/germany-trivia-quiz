@@ -1,18 +1,48 @@
+import { useRef } from 'react';
+
 import Button from './Button.jsx';
 
-export default function Answers({answerOptions, handleAnswerClick}) {
+export default function Answers({
+  answerOptions, 
+  selectedAnswer,
+  answerState,
+  handleAnswerClick,
+}) {
+  // don't shuffle again when state changes
+const shuffledAnswerOptions = useRef();
+
+
+if(!shuffledAnswerOptions.current) {
+  shuffledAnswerOptions.current = [...answerOptions];
+  shuffledAnswerOptions.current.sort(() => Math.random() - 0.5);
+}
+console.log(shuffledAnswerOptions.current);
   return (
     <ul id='answer-options'>
-      {answerOptions.map((ans, idx) => (
-        <li key={idx} className='answer'>
-          <Button
-            handleClick={() => handleAnswerClick(ans)}
-            classes='answer-btn'
-          >
-            {ans}
-          </Button>
-        </li>
-      ))}
+      {shuffledAnswerOptions.current.map((ans, idx) => {
+        const btnIsSelected = selectedAnswer === ans; // target clicked button
+      
+        let btnClasses = 'answer-btn';
+        
+        if( answerState === 'answered' && btnIsSelected) {
+          btnClasses = btnClasses + ' answered';
+        }
+
+        if ((answerState === 'correct' || answerState === 'incorrect') && btnIsSelected ){
+          btnClasses = btnClasses + ' ' + answerState;
+        }
+
+        return (
+          <li key={idx} className='answer'>
+            <Button
+              handleClick={() => handleAnswerClick(ans)}
+              classes={btnClasses}
+            >
+              {ans}
+            </Button>
+          </li>
+        );
+      })}
     </ul>
   );
 }
