@@ -6,7 +6,7 @@ export default function Answers({
   answerOptions, 
   selectedAnswer,
   answerState,
-  handleAnswerClick,
+  onSelect,
 }) {
   // don't shuffle again when state changes
 const shuffledAnswerOptions = useRef();
@@ -16,7 +16,7 @@ if(!shuffledAnswerOptions.current) {
   shuffledAnswerOptions.current = [...answerOptions];
   shuffledAnswerOptions.current.sort(() => Math.random() - 0.5);
 }
-console.log(shuffledAnswerOptions.current);
+
   return (
     <ul id='answer-options'>
       {shuffledAnswerOptions.current.map((ans, idx) => {
@@ -35,8 +35,9 @@ console.log(shuffledAnswerOptions.current);
         return (
           <li key={idx} className='answer'>
             <Button
-              handleClick={() => handleAnswerClick(ans)}
+              handleClick={() => onSelect(ans)}
               classes={btnClasses}
+              disabled={answerState !== ''}
             >
               {ans}
             </Button>

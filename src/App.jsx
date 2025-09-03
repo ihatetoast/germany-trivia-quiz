@@ -14,6 +14,9 @@ function App() {
   // map over topics.js for topic. All after quiz functions
   // so for now force it to be capitals. handle setting topic on
   // button click later.
+  // todo: address how the user will determine the test 
+  // build at least two more smaller mini quizzes to make sure this works.
+  // all after styling first to see what it too focused on one topic.
 
   const [topic, setTopic] = useState(TOPICS[0]);
 
@@ -32,7 +35,7 @@ function App() {
             </Button>
           </div>
         )}
-        {quizStarted && <QuizPage />}
+        {quizStarted && <QuizPage onStartQuiz={handleStartQuiz}/>}
       </main>
     </>
   );

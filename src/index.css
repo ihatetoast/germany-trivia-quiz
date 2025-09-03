@@ -147,3 +147,9 @@ button {
 .answer-btn.incorrect {
   color: #dd0000;
 }
+
+
+/* TIMER MODULE  */
+#timer-progress-bar.hidden {
+  visibility: hidden;
+}

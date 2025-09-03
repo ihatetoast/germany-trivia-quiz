@@ -10,8 +10,9 @@ export default function QuizQuestion({
   onNotAnswered,
   handleAnswerClick,
 }) {
-  // setQuiz later. currently set to first set (states)
-  const [quiz, setQuiz] = useState(TOPICS[0].questions);
+  // setQuiz later. currently set to first set (states) on quiz page
+  // just hard code it here as it'd be passed down. for now
+  const quiz = TOPICS[0].questions;
 
   const [userAnswer, setUserAnswer] = useState({
     selectedAnswer: '',
@@ -39,6 +40,9 @@ export default function QuizQuestion({
 
     // give parent timeout 1 sec to show selected
     // an then another sec to show right/wrong via style (total 2 sec)
+    // timers only for styling. reason for that is we want to give
+    // the user the results before next question instead of at the end.
+    // todo: add a style to the right answer if user was wrong. 
     setTimeout(() => {
       setUserAnswer({
         selectedAnswer: answer,
@@ -50,23 +54,26 @@ export default function QuizQuestion({
     }, 1000);
   }
 
-  if(userAnswer.selectedAnswer && userAnswer.isCorrect !==null) {
+  if(userAnswer.selectedAnswer && userAnswer.isCorrect !== null) {
     answerState = userAnswer.isCorrect ? 'correct' : 'incorrect';
   } else if( userAnswer.selectedAnswer) {
-    answerState = 'incorrect';
+    answerState = 'answered';
   }
+
   return (
     <div id='quiz-question'>
       <Timer 
       key={timerDuration}
       duration={timerDuration} 
       onTimesUp={userAnswer.selectedAnswer === '' ? onNotAnswered : null} 
+      answerState={answerState}
       />
       <h2>{quiz[idx].question}</h2>
       <Answers
         answerOptions={quiz[idx].answers}
-        handleAnswerClick={handleSelectUserAnswer}
+        onSelect={handleSelectUserAnswer}
         answerState={answerState}
+        selectedAnswer={userAnswer.selectedAnswer}
       />
     </div>
   );
