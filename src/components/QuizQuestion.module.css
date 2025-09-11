@@ -1,0 +1,22 @@
+/* IMAGE ASSOCIATED WITH QUIZ QUESTION  */
+.questionImage {
+display: flex;
+justify-content: center;
+align-items: center;
+width: 250px;
+border-radius:5px;
+overflow: hidden;
+margin: 0 auto;
+margin-bottom: 1rem;
+/* height: 333px; */
+box-shadow: 0px 10px 10px -6px rgba(0, 0, 0, 0.3);
+}
+
+.questionImage img {
+  width: 100%;
+}
+
+/* leave alone for now. don't you dare come back to this
+until you have built a 2nd or 3rd quiz that do NOT have 
+images. Also test (later!) to see how everything goes
+when some questions have an associated image  */

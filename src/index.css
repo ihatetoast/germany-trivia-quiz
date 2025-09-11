@@ -55,11 +55,11 @@ button {
 #quiz-board {
   background-color: #fff;
   box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.6);
+  border-radius:5px;
   margin: 2rem auto;
   padding: 2rem;
   text-align: center;
   width: 50%;
-  margin-top: 9rem;
   max-width: 50rem;
 }
 
@@ -93,7 +93,7 @@ button {
   font-size: 0.9rem;
   padding: 1rem 2rem;
   border: none;
-  border-radius: 12px;
+  border-radius: 5px;
   cursor: pointer;
   text-align: center;
 }

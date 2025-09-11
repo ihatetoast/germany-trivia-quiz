@@ -23,3 +23,11 @@ export default function Results({title, onStartQuiz}) {
     </div>
   )
 }
+
+
+// todo first: just the stats 
+// todo after (when you're styling for the end):
+// map of states: pos abs, have states on states 
+// and hover to get answers / show cap. 
+// maybe something else? maybe never finish this and leave this 
+// component for play?

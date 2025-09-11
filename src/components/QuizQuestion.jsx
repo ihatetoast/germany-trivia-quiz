@@ -5,6 +5,8 @@ import Answers from './Answers.jsx';
 
 import TOPICS from '../topics.js';
 
+import classes from './QuizQuestion.module.css';
+
 export default function QuizQuestion({
   idx,
   onNotAnswered,
@@ -42,7 +44,7 @@ export default function QuizQuestion({
     // an then another sec to show right/wrong via style (total 2 sec)
     // timers only for styling. reason for that is we want to give
     // the user the results before next question instead of at the end.
-    // todo: add a style to the right answer if user was wrong. 
+    // todo: add a style to the right answer if user was wrong.
     setTimeout(() => {
       setUserAnswer({
         selectedAnswer: answer,
@@ -54,20 +56,34 @@ export default function QuizQuestion({
     }, 1000);
   }
 
-  if(userAnswer.selectedAnswer && userAnswer.isCorrect !== null) {
+  if (userAnswer.selectedAnswer && userAnswer.isCorrect !== null) {
     answerState = userAnswer.isCorrect ? 'correct' : 'incorrect';
-  } else if( userAnswer.selectedAnswer) {
+  } else if (userAnswer.selectedAnswer) {
     answerState = 'answered';
   }
 
+  // remove when cleaning up. just hardcoding t/f 
+  // current timer is prog bar. replace with some other visual like Bierstein oder
+  // irgendetwas anderes?
+  const katyStylin = false;
+  // move this into ret statement when cleaning up.
+  const quizTimer = (
+    <Timer
+      key={timerDuration}
+      duration={timerDuration}
+      onTimesUp={userAnswer.selectedAnswer === '' ? onNotAnswered : null}
+      answerState={answerState}
+    />
+  );
+  const quizImage = (
+    <div className={classes.questionImage}>
+      <img src={quiz[idx].image} alt={quiz[idx].imageAlt} />
+    </div>
+  );
   return (
     <div id='quiz-question'>
-      <Timer 
-      key={timerDuration}
-      duration={timerDuration} 
-      onTimesUp={userAnswer.selectedAnswer === '' ? onNotAnswered : null} 
-      answerState={answerState}
-      />
+      {!katyStylin && quizTimer}
+      {quiz[idx].image && quizImage}
       <h2>{quiz[idx].question}</h2>
       <Answers
         answerOptions={quiz[idx].answers}
@@ -79,11 +95,10 @@ export default function QuizQuestion({
   );
 }
 
-
 /**
  * take a break to style a bit.
  * since you want to make some test-specific style options
  * first up: module these suckers
  * ideas for right wrong an after a richtig/ja oder falsh/nein as
- * pseudoselector. 
+ * pseudoselector.
  */
