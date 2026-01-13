@@ -7,7 +7,14 @@ gold # ffcc00 rgb(255, 204, 0) https://www.colorhexa.com/ffcc00
 triadic color to gold: #00ffcc
 complementary to red: #00dddd
 */
-
+:root {
+  /* official flag colors  */
+  --black: #000000;
+  --red: #dd0000;
+  --gold: #ffcc00;
+  --blue: #00dddd;
+  --green-light: #00ffcc;
+}
 * {
   box-sizing: border-box;
   margin: 0;

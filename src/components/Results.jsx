@@ -1,4 +1,4 @@
-import map from '../assets/map-304071_1280.png';
+import map from '../assets/images/map-304071_1280.png';
 
 import Button from './Button.jsx';
 

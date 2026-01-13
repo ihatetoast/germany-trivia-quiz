@@ -1,4 +1,4 @@
-import wurst from '../assets/sausage-5448952_1280.png';
+import wurst from '../assets/images/sausage-5448952_1280.png';
 
 import classes from './Header.module.css';
 
