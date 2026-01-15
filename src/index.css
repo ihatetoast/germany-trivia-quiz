@@ -111,6 +111,14 @@ button {
   gap: 0.3rem;
   padding: 0.25rem;
   width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quiz-question {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 .quiz-question-intro,
@@ -126,6 +134,7 @@ button {
 .quiz-question-container {
   background: var(--red);
   font-size: 1.2rem;
+  padding-bottom: 2rem;
 }
 
 .quiz-question-container h2 {
@@ -227,11 +236,11 @@ button {
   flex-direction: column;
   padding: 0.25rem;
 }
-.timer-select-container label{
+.timer-select-container label {
   font-family: 'Domine', serif;
 }
 .timer-select-container .option-value,
-.timer-select-container option  {
+.timer-select-container option {
   font-family: 'Manrope', sans-serif;
 }
 
@@ -266,7 +275,7 @@ button {
   border-radius: 8px;
   opacity: 0;
   transition: all 0.4s allow-discrete;
-   /* top: calc(anchor(bottom) + 1px);
+  /* top: calc(anchor(bottom) + 1px);
   left: anchor(10%); */
 }
 
@@ -331,6 +340,7 @@ selectedcontent .option-icon {
   display: none;
 }
 
+/* TIMERS PROGRESS BAR AND BEER  */
 #timer-progress-bar.hidden {
   visibility: hidden;
 }
@@ -375,10 +385,44 @@ selectedcontent .option-icon {
     transform: translate(0, 0) rotate(0deg);
   }
 }
+@media screen and (min-width: 426px) {
+  .quiz-question-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .quiz-question-intro,
+  .answer-options-container {
+    width: 90%;
+    max-width: 630px;
+  }
+}
 
 @media screen and (min-width: 768px) {
   .start-btn {
     max-width: 20rem;
     width: 100%;
+  }
+
+  .quiz-question-intro {
+    flex-direction: column;
+    align-items: center;
+  }
+  .quiz-question {
+    flex-direction: row;
+    gap: 0;
+    align-items: flex-end;
+    align-self: flex-start;
+  }
+  .quiz-question h2 {
+    font-size: 2rem;
+  }
+
+  .quiz-board {
+    max-width: unset;
+  }
+
+  .answer .answer-btn {
+    font-size: 1.35rem;
   }
 }

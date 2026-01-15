@@ -40,7 +40,6 @@ export default function QuizQuestion({
     // an then another sec to show right/wrong via style (total 2 sec)
     // timers only for styling.  is we want to give
     // the user the results before next question instead of at the end.
-    // todo: add a style to the right answer if user was wrong.
     setTimeout(() => {
       setUserAnswer({
         selectedAnswer: answer,
@@ -58,12 +57,8 @@ export default function QuizQuestion({
     answerState = 'answered';
   }
 
-  // remove when cleaning up. just hardcoding t/f
-  // current timer is prog bar. replace with some other visual like Bierstein oder
-  // irgendetwas anderes?
   const timed = timerVal !== 0;
-  
-  // move this into ret statement when cleaning up.
+
   const quizTimer = (
     <Timer
       key={timerDuration}
@@ -79,10 +74,12 @@ export default function QuizQuestion({
   );
   return (
     <div className='quiz-question-container'>
-      {timed && quizTimer}
       <div className='quiz-question-intro'>
-        {question.image && quizImage}
-        <h2>{question.question}</h2>
+        <div className='timer-div'>{timed && quizTimer}</div>
+        <div className='quiz-question'>
+          {question.image && quizImage}
+          <h2>{question.question}</h2>
+        </div>
       </div>
 
       <Answers

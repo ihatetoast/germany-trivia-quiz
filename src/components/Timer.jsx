@@ -1,19 +1,20 @@
 import { useEffect, useState } from 'react';
 
+import ProgressBier from './ProgressBier';
 export default function Timer({ duration, onTimesUp, answerState }) {
+  const [isMobile] = useState(window.innerWidth < 768); // no need to set it.
+
   const [timeRemaining, setTimeRemaining] = useState(duration);
-// Why timers need useEffect: åthey're counting down
-// the nature of the tmer would cause inf loop because of 
-// the interval. INterval's updating the time rem state would
-// rerender another timer, so settime out needs protection, too.
-
-
+  // Why timers need useEffect: they're counting down
+  // the nature of the tmer would cause inf loop because of
+  // the interval. INterval's updating the time rem state would
+  // rerender another timer, so settime out needs protection, too.
 
   useEffect(() => {
     const timer = setTimeout(onTimesUp, duration);
-    return ()=>{
+    return () => {
       clearTimeout(timer);
-    }
+    };
   }, [duration, onTimesUp]);
 
   useEffect(() => {
@@ -23,11 +24,18 @@ export default function Timer({ duration, onTimesUp, answerState }) {
 
     return () => {
       clearInterval(interval);
-    }
+    };
   }, []);
-    const questionIsEvaluated = answerState === 'correct' || answerState === 'incorrect';
+  const questionIsEvaluated =
+    answerState === 'correct' || answerState === 'incorrect';
 
   return (
-    <progress id='timer-progress-bar' max={duration} value={timeRemaining} className={!questionIsEvaluated ? "" : "hidden"}/>
+    <div
+      id='timer-progress-bar'
+      className={!questionIsEvaluated ? '' : 'hidden'}
+    >
+      {isMobile && <progress max={duration} value={timeRemaining} />}
+      {!isMobile && <ProgressBier duration={duration} timeRemaining={timeRemaining}/>}
+    </div>
   );
 }

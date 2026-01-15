@@ -9,7 +9,9 @@ import Results from './Results.jsx';
 export default function QuizPage({timerVal, onStartQuiz, questionData}) {
   console.log(questionData);
   const [usersAnswers, setUsersAnswers] = useState([]);
-
+  // note to remember in the future--if you can, derive. derive until you run out geyassoline
+  // length number is number of answered + 1 (bc of 0 idx)
+  // i.e. if there are two (len is 2), the next question is at 0, 1, 2 (the third/next q)
   const currentQuestionIdx = usersAnswers.length;
 
   const quizCompleted = questionData.questions.length === currentQuestionIdx;

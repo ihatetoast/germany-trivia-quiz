@@ -306,13 +306,13 @@ export default [
       },
       {
         id: 't2q7',
-        question: 'What is a dessert that also means "Oh, rubbish" or "Oh, nonsense"?',
+        question: 'What is "Kölsch"?',
         answers: [
-          'Ach, Schmarrn!',
-          'Ach, du Leberwurstchen!',
-          'Ach, Scheisswälder!',
-          'Ach, roter Schmutz',
-          'Ach, Verdammntnudeln',
+          'A style of beef that orginated from Cologne',
+          'A Bavarian meat pastry',
+          'The German equivalent to "achoo!"',
+          'Slang for beer farts',
+          'A popular cream and vanilla sauce Germans add to desserts',
         ]
       },
       {
@@ -368,6 +368,17 @@ export default [
           'The 3 most popular beers sold in Bavaria',
           'The 3 worst teams in the German football league',
           '3 terms for Berkbällchen (Rocky Mountain oysters)',
+        ]
+      },
+      {
+        id: 't2q13',
+        question: 'What is "Mostertpöttche"?',
+        answers: [
+          'The famous pot Düsseldorf mustard comes in, which also features in a Van Gogh painting.',
+          'Slang for a pot belly',
+          'The title of a still life of German food by Mario Barthus',
+          'The sausage Munster is known for',
+          'The German name for Cinderella',
         ]
       },
     ]
