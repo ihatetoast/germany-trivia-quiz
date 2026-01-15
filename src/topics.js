@@ -1,7 +1,9 @@
 export default [
   {
     id: '1',
-    topic: 'capital cities',
+    topic: 'German capital cities',
+    resultsImg: '/images/map-304071_1280.png',
+    resultsImgAlt: 'Map of Germany showing the states\' borders',
     questions: [
       {
         id: 't1q1',
@@ -15,7 +17,7 @@ export default [
         ],
         image:
           '/images/stuttgart.png',
-        imageAlt: 'REPLACE ME',
+        imageAlt: 'Wuerttemberg Mausoleum with a vineyard in the foreground',
       },
       {
         id: 't1q2',
@@ -29,7 +31,7 @@ export default [
         ],
         image:
           '/images/munich.png',
-        imageAlt: 'REPLACE ME',
+        imageAlt: 'Marienplatz with the New City Hall (Neues Rathaus)',
       },
       {
         id: 't1q3',
@@ -43,7 +45,7 @@ export default [
         ],
         image:
           '/images/berlin.png',
-        imageAlt: 'REPLACE ME',
+        imageAlt: 'Drone view of the Spree River, Museum Island, and Berlin Palace',
       },
       {
         id: 't1q4',
@@ -57,7 +59,7 @@ export default [
         ],
         image:
           '/images/potsdam.png',
-        imageAlt: 'REPLACE ME',
+        imageAlt: 'view of old city hall with the statue of Fortuna auf dem Fortunaportal in the foreground',
       },
       {
         id: 't1q5',
@@ -71,7 +73,7 @@ export default [
         ],
         image:
           '/images/bremen.png',
-        imageAlt: 'REPLACE ME',
+        imageAlt: 'Bremen market place (Marktplatz)',
       },
       {
         id: 't1q6',
@@ -85,7 +87,7 @@ export default [
         ],
         image:
           '/images/hamburg.png',
-        imageAlt: 'REPLACE ME',
+        imageAlt: 'St Pauli\'s pier and the head of the Elbe River',
       },
       {
         id: 't1q7',
@@ -99,7 +101,7 @@ export default [
         ],
         image:
           '/images/wiesbaden.png',
-        imageAlt: 'REPLACE ME',
+        imageAlt: 'Kurhaus Wiesbaden',
       },
       {
         id: 't1q8',
@@ -113,7 +115,7 @@ export default [
         ],
         image:
           '/images/hannover.png',
-        imageAlt: 'REPLACE ME',
+        imageAlt: 'View over city center including the old town hall and St Georgii et Jacobi church',
       },
       {
         id: 't1q9',
@@ -127,7 +129,7 @@ export default [
         ],
         image:
           '/images/schwerin.png',
-        imageAlt: 'REPLACE ME',
+        imageAlt: 'View of the orangerie and the Lake Schwerin',
       },
       {
         id: 't1q10',
@@ -142,7 +144,7 @@ export default [
         ],
         image:
           '/images/mainz.png',
-        imageAlt: 'REPLACE ME',
+        imageAlt: 'View over Mainz and the Rhine',
       },
       {
         id: 't1q11',
@@ -157,7 +159,7 @@ export default [
         ],
         image:
           '/images/duesseldorf.png',
-        imageAlt: 'REPLACE ME',
+        imageAlt: 'Frank Owen Gehry\'s New Zollhof buildings in Media Harbour',
       },
       {
         id: 't1q12',
@@ -171,7 +173,7 @@ export default [
         ],
         image:
           '/images/saarbrucken.png',
-        imageAlt: 'REPLACE ME',
+        imageAlt: 'The Baroque Louis Church (Ludwigskirche)',
       },
       {
         id: 't1q13',
@@ -185,7 +187,7 @@ export default [
         ],
         image:
           '/images/dresden.png',
-        imageAlt: 'REPLACE ME',
+        imageAlt: 'Dresden Cathedral (Kathedrale Sanctissimae Trinitatis in the inner old city',
       },
       {
         id: 't1q14',
@@ -199,7 +201,7 @@ export default [
         ],
         image:
           '/images/magdeburg.png',
-        imageAlt: 'REPLACE ME',
+        imageAlt: 'View over the city with the City Park (Stadtpark) and the Wheel of Hope ferris wheel in the foreground',
       },
       {
         id: 't1q15',
@@ -212,7 +214,7 @@ export default [
           'Meerschweinchen-Holzbeinchen',
         ],
         image: '/images/kiel.png',
-        imageAlt: 'REPLACE ME',
+        imageAlt: 'View of the opera house and city hall from the opposite end of Lake Little Kiel',
       },
       {
         id: 't1q16',
@@ -226,13 +228,16 @@ export default [
         ],
         image:
           '/images/erfuhrt.png',
-        imageAlt: 'REPLACE ME',
+        imageAlt: 'Old Erfurt and the view from the tower of St. Giles\' Church over the houses standing on the Krämerbrücke bridge',
+
       },
     ],
   },
   {
     id: '2',
-    topic: 'food and drink',
+    topic: 'German food and drink',
+    resultsImg: '/images/sauerbraten-2512443_640.jpg',
+    resultsImgAlt: 'Plate of sauerbraten and spaetzle',
     questions: [{
         id: 't2q1',
         question: 'What is Spätzle?',
@@ -243,41 +248,128 @@ export default [
           'What Bavarians shout when dinner is ready',
           'The small sprinkles on a cake or ice cream',
         ]
-      },]
-  },
-  {
-    id: 'test123',
-    topic: 'test topic',
-    questions: [{
-        id: 'testq1',
-        question: '1 + 1 = ?',
+      },
+    {
+        id: 't2q2',
+        question: 'What part of Germany produces the most wine?',
         answers: [
-          '2 or 11 or 10',
-          'cats and dogs living together',
-          'The Talking Heads',
-          'STEVEN!',
-          'on the rocks',
+          'Rheinhessen',
+          'Pfalz (Palatinate)',
+          'Baden',
+          'Mosel',
+          'Rieslingia',
         ]
-      },{
-        id: 'testq2',
-        question: 'A, B, C, ?',
+      },
+    {
+        id: 't2q3',
+        question: 'What is "Leberkäse?',
         answers: [
-          'D',
-          'Synthpop',
-          'Sponge',
-          'You\'re gonna need a bigger boat',
-          'Rene DesCartes was a drunken fart',
+          'A pork, bacon, and spices meatloaf',
+          'A liver, cheese, and mustard sandwich',
+          'Liver sausage encased in goat\'s intestines',
+          'The job of making cheese: labor + cheese',
+          'A meat pudding made with liver and cream cheese',
         ]
-      },{
-        id: 'testq3',
-        question: 'Best person on this planet',
+      },
+      {
+        id: 't2q4',
+        question: 'What is "Rollmops"?',
         answers: [
-          'Steve Buscemi',
-          '3',
-          'the comma',
-          'one bowl and seven plants',
-          'ears',
+          'A pickled herring rolled around a gherkin and onion',
+          'Something Germans shout before cutting into a cake for good luck',
+          'A pastry similar to cannoli',
+          'The oldest restaurant in Rudolstadt',
+          'A kitchen tool used to make special Christmas cookies',
         ]
-      },]
+      },
+      {
+        id: 't2q5',
+        question: 'What is a dessert that also means "Oh, rubbish" or "Oh, nonsense"?',
+        answers: [
+          'Ach, Schmarrn!',
+          'Ach, du Leberwurstchen!',
+          'Ach, Scheisswälder!',
+          'Ach, roter Schmutz',
+          'Ach, Verdammntnudeln',
+        ]
+      },
+      {
+        id: 't2q6',
+        question: 'Maultaschen ("Little meat bags") are traditionally eaten on Good Friday because the monks at Malbronn Abbey invented them to conceal meat. What is the colloquial term for them?',
+        answers: [
+          'Herrgottsb\'scheisserle (little God-cheaters)',
+          'Damenbrüstchen (little lady tatas)',
+          'Sündentaschen (sin pockets)',
+          'Troll-Ärsche (troll asses)',
+          'heiße Kreuznonnen (hot cross nuns)',
+        ]
+      },
+      {
+        id: 't2q7',
+        question: 'What is a dessert that also means "Oh, rubbish" or "Oh, nonsense"?',
+        answers: [
+          'Ach, Schmarrn!',
+          'Ach, du Leberwurstchen!',
+          'Ach, Scheisswälder!',
+          'Ach, roter Schmutz',
+          'Ach, Verdammntnudeln',
+        ]
+      },
+      {
+        id: 't2q8',
+        question: 'What do the US midwesterners call "Quark"?',
+        answers: [
+          'Farmer cheese',
+          'Cheese à la pie',
+          'Duck cheese',
+          'Dumpling sauce',
+          'Particle cheese',
+        ]
+      },
+      {
+        id: 't2q9',
+        question: 'Verein Gegen Betrügerischen Einshenken protects you against what?',
+        answers: [
+          'Not getting enough beer in a pour at a festival',
+          'Getting flat beer',
+          'Getting a dirty Bierstein',
+          'Vermin bites at restaurants',
+          'Ach, Verdammntnudeln',
+        ]
+      },
+      {
+        id: 't2q10',
+        question: 'What is a "Radler"?',
+        answers: [
+          'Lager and lemon soda',
+          'A beer or wine bike delivery service',
+          'The drink German and Austrian moms give their babies (like a formula)',
+          'An insult among chefs to refer to the worst cook',
+          'Slang for a person too cheap to buy a round of drinks',
+        ]
+      },
+      {
+        id: 't2q11',
+        question: 'What does "Feierabend" mean?',
+        answers: [
+          'End-of-work celebration (akin to Happy Hour)',
+          'The pagan ritual of sharing stories around a fire (Campfire)',
+          'It is similar to "Prost!" but said only amongst women',
+          'The part for an employee\'s last day of work when they retire',
+          'What the bartender shouts (like "Last call!")',
+        ]
+      },
+      {
+        id: 't2q12',
+        question: 'What are "Himbeere", "Stachelbeere", and "Johannisbeere"?',
+        answers: [
+          'Raspberry, gooseberry, and red current',
+          'The names of the 3 bears in Goldilocks',
+          'The 3 most popular beers sold in Bavaria',
+          'The 3 worst teams in the German football league',
+          '3 terms for Berkbällchen (Rocky Mountain oysters)',
+        ]
+      },
+    ]
   }
 ];

@@ -18,6 +18,7 @@ if(!shuffledAnswerOptions.current) {
 }
 
   return (
+    <div className="answer-options-container">
     <ul id='answer-options'>
       {shuffledAnswerOptions.current.map((ans, idx) => {
         const btnIsSelected = selectedAnswer === ans; // target clicked button
@@ -44,6 +45,6 @@ if(!shuffledAnswerOptions.current) {
           </li>
         );
       })}
-    </ul>
+    </ul></div>
   );
 }

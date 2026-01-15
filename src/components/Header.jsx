@@ -9,11 +9,14 @@ export default function Header({ topic }) {
         <h1>German Trivia Quiz</h1>
         <p>{`Test your knowledge on ${topic}`}</p>
       </div>
-      <img
+      <div className={classes.imageContainer}>
+<img
         className={classes.image}
         src={wurst}
         alt='a sausage in sunglasses smiling and giving the thumbs up'
       />
+      </div>
+      
     </header>
   );
 }

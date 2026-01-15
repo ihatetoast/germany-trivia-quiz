@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import Header from './components/Header.jsx';
+import TimeSelect from './components/TimeSelect.jsx';
 import Button from './components/Button.jsx';
 import QuizPage from './components/QuizPage.jsx';
 
@@ -8,34 +9,56 @@ import TOPICS from './topics.js';
 
 function App() {
   const [quizStarted, setQuizStarted] = useState(false);
+  const [topic, setTopic] = useState([]);
+  const [time, setTime] = useState(0);
 
-  // fill out later. now just go to page to start quiz.
-  // buttons to determine the theme? First step, just states
-  // map over topics.js for topic. All after quiz functions
-  // so for now force it to be capitals. handle setting topic on
-  // button click later.
-  // todo: address how the user will determine the test 
-  // build at least two more smaller mini quizzes to make sure this works.
-  // all after styling first to see what it too focused on one topic.
-
-  const [topic, setTopic] = useState(TOPICS[0]);
-
-  function handleStartQuiz() {
-    setQuizStarted(!quizStarted);
+  function handleStartQuiz(topicId) {
+    setTopic(TOPICS[topicId - 1]);
+    setQuizStarted((prev) => !prev);
   }
 
+  function handleSelectChange(timeVal) {
+    const ms = timeVal === '0' ? 0 : parseInt(timeVal) * 1000;
+    setTime(ms)
+    console.log(ms);
+  }
   return (
     <>
-      <Header topic={topic.topic} />
+      <Header topic={topic.topic ?? 'German cultural trivia'} />
       <main>
         {!quizStarted && (
-          <div className='btns-container'>
-            <Button handleClick={handleStartQuiz} classes='start-btn '>
-              {`Start ${topic.topic} quiz`}
-            </Button>
-          </div>
+          <>
+            <section className='start-page-intro'>
+              <p className='instructions-para'>
+                Choose a topic and a difficulty level (how fast the timer counts down) for each question. If you make no choice, the quiz will be untimed. 
+              </p>
+            </section>
+            <section className='btns-container'>
+              <TimeSelect onSelect={handleSelectChange}/>
+              {TOPICS.map((t) => (
+                <Button
+                  key={t.id}
+                  handleClick={() => handleStartQuiz(t.id)}
+                  classes='start-btn '
+                >
+                  {`${t.topic} quiz`}
+                </Button>
+              ))}
+            </section>
+          </>
         )}
-        {quizStarted && <QuizPage onStartQuiz={handleStartQuiz}/>}
+        {quizStarted && (
+          <QuizPage
+            timerVal={time}
+            onStartQuiz={handleStartQuiz}
+            questionData={{
+              topicTitle: topic.topic,
+              questions: topic.questions,
+              resultsImg: topic.resultsImg,
+              resultsImgAlt: topic.resultsImgAlt,
+            }}
+          />
+        )}
       </main>
     </>
   );

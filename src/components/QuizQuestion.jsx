@@ -3,25 +3,21 @@ import { useState } from 'react';
 import Timer from './Timer.jsx';
 import Answers from './Answers.jsx';
 
-import TOPICS from '../topics.js';
-
 import classes from './QuizQuestion.module.css';
 
 export default function QuizQuestion({
   idx,
+  timerVal,
+  question,
   onNotAnswered,
   handleAnswerClick,
 }) {
-  // setQuiz later. currently set to first set (states) on quiz page
-  // just hard code it here as it'd be passed down. for now
-  const quiz = TOPICS[0].questions;
-
   const [userAnswer, setUserAnswer] = useState({
     selectedAnswer: '',
     isCorrect: null,
   });
 
-  let timerDuration = 10000;
+  let timerDuration = timerVal;
   let answerState = '';
 
   // if user has clicked an answer, shorten the timer to move along
@@ -42,13 +38,13 @@ export default function QuizQuestion({
 
     // give parent timeout 1 sec to show selected
     // an then another sec to show right/wrong via style (total 2 sec)
-    // timers only for styling. reason for that is we want to give
+    // timers only for styling.  is we want to give
     // the user the results before next question instead of at the end.
     // todo: add a style to the right answer if user was wrong.
     setTimeout(() => {
       setUserAnswer({
         selectedAnswer: answer,
-        isCorrect: quiz[idx].answers[0] === answer,
+        isCorrect: question.answers[0] === answer,
       });
       setTimeout(() => {
         handleAnswerClick(answer);
@@ -62,10 +58,11 @@ export default function QuizQuestion({
     answerState = 'answered';
   }
 
-  // remove when cleaning up. just hardcoding t/f 
+  // remove when cleaning up. just hardcoding t/f
   // current timer is prog bar. replace with some other visual like Bierstein oder
   // irgendetwas anderes?
-  const katyStylin = false;
+  const timed = timerVal !== 0;
+  
   // move this into ret statement when cleaning up.
   const quizTimer = (
     <Timer
@@ -77,16 +74,19 @@ export default function QuizQuestion({
   );
   const quizImage = (
     <div className={classes.questionImage}>
-      <img src={quiz[idx].image} alt={quiz[idx].imageAlt} />
+      <img src={question.image} alt={question.imageAlt} />
     </div>
   );
   return (
-    <div id='quiz-question'>
-      {!katyStylin && quizTimer}
-      {quiz[idx].image && quizImage}
-      <h2>{quiz[idx].question}</h2>
+    <div className='quiz-question-container'>
+      {timed && quizTimer}
+      <div className='quiz-question-intro'>
+        {question.image && quizImage}
+        <h2>{question.question}</h2>
+      </div>
+
       <Answers
-        answerOptions={quiz[idx].answers}
+        answerOptions={question.answers}
         onSelect={handleSelectUserAnswer}
         answerState={answerState}
         selectedAnswer={userAnswer.selectedAnswer}
@@ -94,11 +94,3 @@ export default function QuizQuestion({
     </div>
   );
 }
-
-/**
- * take a break to style a bit.
- * since you want to make some test-specific style options
- * first up: module these suckers
- * ideas for right wrong an after a richtig/ja oder falsh/nein as
- * pseudoselector.
- */

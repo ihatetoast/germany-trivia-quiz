@@ -6,15 +6,29 @@ gold # ffcc00 rgb(255, 204, 0) https://www.colorhexa.com/ffcc00
 
 triadic color to gold: #00ffcc
 complementary to red: #00dddd
+
+although white and black are easy, keep as vars in case 
+i decide to have a black-flag and black and off-white and white
 */
+
 :root {
   /* official flag colors  */
   --black: #000000;
+  --very-light-grey: #d6d4d4;
+  --light-grey: #999999;
+  --grey: #494949;
   --red: #dd0000;
+  --red-accent: #540404;
   --gold: #ffcc00;
+  --gold-accent: #ffea9a;
   --blue: #00dddd;
   --green-light: #00ffcc;
+  --white: #fff;
+  --off-white: #e2e2e2;
+
+  --flag-stripe-height: 150px;
 }
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -24,16 +38,17 @@ complementary to red: #00dddd
 html {
   line-height: 1.5;
   font-synthesis: none;
-  height: 100%;
 }
 
 body {
-  margin: 0;
-  padding-top: 130px;
-  background-image: url('../src/assets/germany-1038606_1280.png');
-  background-attachment: fixed;
-  background-size: 130%;
-  background-position: center -20px;
+  min-height: 100vh;
+  background: var(--gold);
+}
+
+main {
+  padding: 0;
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 
 /* SERIF GOOGLE FONT DOMINE  */
@@ -54,20 +69,67 @@ button {
   font-style: normal;
 }
 
+/* MAIN APP PAGE / STARTING PAGE  */
+.start-page-intro {
+  padding: 1rem 0;
+  background: var(--red);
+  color: var(--white);
+  display: flex;
+  height: var(--flag-stripe-height);
+  padding: 1rem 0;
+  align-items: center;
+  text-align: center;
+}
+.instructions-para {
+  font-size: 1rem;
+  max-width: 100%;
+  padding: 0 1rem;
+  word-wrap: break-word;
+}
+
 .btns-container {
-  padding-top: 5rem;
+  background: var(--gold);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  min-height: var(--flag-stripe-height);
+  padding: 1rem 0;
 }
 
 /* QUIZBOARD no need for module*/
-#quiz-board {
+.quiz-board {
   background-color: #fff;
   box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.6);
-  border-radius:5px;
-  margin: 2rem auto;
-  padding: 2rem;
+  border-radius: 5px;
   text-align: center;
-  width: 50%;
   max-width: 50rem;
+}
+
+.quiz-question-intro {
+  display: flex;
+  gap: 0.3rem;
+  padding: 0.25rem;
+  width: 100%;
+}
+
+.quiz-question-intro,
+.quiz-question-container {
+  padding: 0.25rem;
+}
+
+.answer-options-container {
+  width: 100%;
+  padding: 0.25rem;
+}
+
+.quiz-question-container {
+  background: var(--red);
+  font-size: 1.2rem;
+}
+
+.quiz-question-container h2 {
+  font-size: 1.2rem;
 }
 
 #answer-options {
@@ -81,25 +143,24 @@ button {
 }
 
 .answer {
-  width: 80%;
-  min-width: 30rem;
+  width: 100%;
   margin: 0 auto;
 }
 
 .answer .answer-btn {
   display: inline-block;
   width: 100%;
+  font-size: 1rem;
 }
 
-/* MOVE TO MODULE  */
 /* BUTTONS USED TO START GAME AND AS ANSWERS  */
 .btn {
   display: flex;
   margin: 0 auto;
   justify-content: center;
   font-size: 0.9rem;
-  padding: 1rem 2rem;
-  border: none;
+  padding: 0.5rem;
+  border: 1px solid transparent;
   border-radius: 5px;
   cursor: pointer;
   text-align: center;
@@ -112,12 +173,12 @@ button {
     #b31217 51%,
     #dd0000 100%
   );
-  max-width: 20rem;
-  text-transform: uppercase;
+
   transition: 0.5s;
   background-size: 200% auto;
   color: #fff;
   display: block;
+  font-size: 1rem;
 }
 
 .start-btn:hover {
@@ -127,11 +188,11 @@ button {
 }
 /* fix the black. if wrong answer turn color to red, it is hard to see  */
 .answer-btn {
-  background-image: linear-gradient(to right, #000 0%, #859398 51%, #000 100%);
+  background-image: linear-gradient(to right, #000 0%, #3b4041 51%, #000 100%);
 }
 .answer-btn {
   background-size: 200% auto;
-  box-shadow: 0 0 20px #eee;
+  box-shadow: 0 0 5px #272727;
   color: white;
   font-size: 1.25rem;
   transition: 0.5s;
@@ -149,14 +210,175 @@ button {
   font-weight: 700;
 }
 .answer-btn.correct {
-  color: #ffcc00;
+  color: var(--gold);
+  border-color: var(--gold);
+  animation: correct-bobble 0.5s 2;
 }
 .answer-btn.incorrect {
-  color: #dd0000;
+  color: var(--red);
+  font-weight: bold;
+  border-color: var(--red-accent);
+  animation: incorrect-shake 0.5s 2;
 }
 
+/* TIMER SELECT   */
+.timer-select-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0.25rem;
+}
+.timer-select-container label{
+  font-family: 'Domine', serif;
+}
+.timer-select-container .option-value,
+.timer-select-container option  {
+  font-family: 'Manrope', sans-serif;
+}
 
-/* TIMER MODULE  */
+.timer-select-container select,
+::picker(select) {
+  appearance: base-select;
+}
+
+.timer-select-container select {
+  border: 2px solid var(--very-light-grey);
+  background: #eeeeee;
+  padding: 10px;
+  transition: 0.4s;
+}
+
+.timer-select-container select:hover,
+.timer-select-container select:focus {
+  background: #dddddd;
+}
+
+.timer-select-container select::picker-icon {
+  color: var(--grey);
+  transition: 0.4s rotate;
+}
+
+.timer-select-container select:open::picker-icon {
+  rotate: 180deg;
+}
+
+::picker(select) {
+  border: none;
+  border-radius: 8px;
+  opacity: 0;
+  transition: all 0.4s allow-discrete;
+   /* top: calc(anchor(bottom) + 1px);
+  left: anchor(10%); */
+}
+
+::picker(select):popover-open {
+  opacity: 1;
+}
+
+.timer-select-container option::checkmark {
+  order: 1;
+  margin-left: auto;
+  content: '☑️';
+}
+
+.timer-select-container option {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  border: 2px solid var(--very-light-grey);
+  background: var(--off-white);
+  padding: 10px;
+  transition: 0.4s;
+}
+
+.timer-select-container option:checked {
+  font-weight: bold;
+}
+
+.timer-select-container option:first-of-type {
+  border-radius: 8px 8px 0 0;
+}
+
+.timer-select-container option:last-of-type {
+  border-radius: 0 0 8px 8px;
+}
+
+@starting-style {
+  ::picker(select):popover-open {
+    opacity: 0;
+  }
+}
+
+.timer-select-container
+  option:not(.timer-select-container option:last-of-type) {
+  border-bottom: none;
+}
+
+.timer-select-container option:nth-of-type(odd) {
+  background: white;
+}
+
+.timer-select-container option:hover,
+.timer-select-container option:focus {
+  background: plum;
+}
+
+.timer-select-container option .option-icon {
+  font-size: 1.6rem;
+  text-box: trim-both cap alphabetic;
+}
+
+selectedcontent .option-icon {
+  display: none;
+}
+
 #timer-progress-bar.hidden {
   visibility: hidden;
+}
+
+/* max-width: 20rem;
+  width: 100%; */
+
+/* ANIMATIONS  */
+
+@keyframes incorrect-shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(8px);
+  }
+  50% {
+    transform: translateX(-8px);
+  }
+  75% {
+    transform: translateX(8px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes correct-bobble {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(5px, 5px) rotate(5deg);
+  }
+  50% {
+    transform: translate(0, 0) rotate(0eg);
+  }
+  75% {
+    transform: translate(-5px, 5px) rotate(-5deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .start-btn {
+    max-width: 20rem;
+    width: 100%;
+  }
 }
