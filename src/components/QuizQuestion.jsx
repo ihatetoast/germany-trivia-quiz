@@ -5,8 +5,9 @@ import Answers from './Answers.jsx';
 
 import classes from './QuizQuestion.module.css';
 
+const TIME_TO_NEXT_QUESTION = 2000;
+const TIME_TO_REVEAL_ANSWER = 1000;
 export default function QuizQuestion({
-  idx,
   timerVal,
   question,
   onNotAnswered,
@@ -17,38 +18,40 @@ export default function QuizQuestion({
     isCorrect: null,
   });
 
+  // initial val from user's choice or default
   let timerDuration = timerVal;
   let answerState = '';
 
   // if user has clicked an answer, shorten the timer to move along
   if (userAnswer.selectedAnswer) {
-    timerDuration = 1000; // matches first setTimeout timer
+    timerDuration = TIME_TO_REVEAL_ANSWER; // matches first setTimeout timer
   }
 
   // answer's been evaluated:
   if (userAnswer.isCorrect !== null) {
-    timerDuration = 2000; // matches nested setTimeout timer
+    timerDuration = TIME_TO_NEXT_QUESTION; // matches nested setTimeout timer
   }
 
   function handleSelectUserAnswer(answer) {
     setUserAnswer({
       selectedAnswer: answer, // immediate
-      isCorrect: null,
+      isCorrect: null, // settimeout fun
     });
 
-    // give parent timeout 1 sec to show selected
-    // an then another sec to show right/wrong via style (total 2 sec)
-    // timers only for styling.  is we want to give
-    // the user the results before next question instead of at the end.
     setTimeout(() => {
+      // first determine if right or wrong but ...
       setUserAnswer({
         selectedAnswer: answer,
         isCorrect: question.answers[0] === answer,
       });
+      // pause pause pause the 1000 for a delay before showing if it's right or wrong
+
+      
       setTimeout(() => {
         handleAnswerClick(answer);
-      }, 2000);
-    }, 1000);
+      }, TIME_TO_NEXT_QUESTION);
+      // wait another second (2000-1000) to trigger the fn to add ans to ans array and move on. 
+    }, TIME_TO_REVEAL_ANSWER);
   }
 
   if (userAnswer.selectedAnswer && userAnswer.isCorrect !== null) {
@@ -59,6 +62,8 @@ export default function QuizQuestion({
 
   const timed = timerVal !== 0;
 
+  // use a key to yeet and render new
+  // and  fire onNotanswered IFF there's no answer. 
   const quizTimer = (
     <Timer
       key={timerDuration}
@@ -75,7 +80,7 @@ export default function QuizQuestion({
   return (
     <div className='quiz-question-container'>
       <div className='quiz-question-intro'>
-        <div className='timer-div'>{timed && quizTimer}</div>
+        {timed && <div className='timer-div'> {quizTimer} </div>}
         <div className='quiz-question'>
           {question.image && quizImage}
           <h2>{question.question}</h2>

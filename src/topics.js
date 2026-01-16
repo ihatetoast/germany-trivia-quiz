@@ -39,7 +39,7 @@ export default [
         answers: [
           'Berlin is a city-state and is its own capital',
           'Berlinstadt',
-          'Ost-West-Berlinerhaven.',
+          'Ost-West-Berlinerhaven',
           'Berlinnenstadt',
           'Bärland',
         ],
@@ -65,11 +65,11 @@ export default [
         id: 't1q5',
         question: 'What is the capital of Bremen?',
         answers: [
-          'Bremen is a city-state officially known as the Free Hanseatic City of Bremen.',
+          'Bremen is a city-state officially known as the Free Hanseatic City of Bremen',
           'Havenbremer',
           'Bremänner',
           'Schildkröte',
-          'Bremen is not a German city. It was lost in a poker game against Liechtenstein.',
+          'Bremen is not a German city. It was lost in a poker game against Liechtenstein',
         ],
         image:
           '/images/bremen.png',
@@ -79,7 +79,7 @@ export default [
         id: 't1q6',
         question: 'What is the capital of Hamburg?',
         answers: [
-          'Hamburg is a city-state officially known as the Free Hanseatic City of Hamburg.',
+          'Hamburg is a city-state officially known as the Free Hanseatic City of Hamburg',
           'Inner Alster',
           'Elbe',
           'Wandsbek',
@@ -89,148 +89,148 @@ export default [
           '/images/hamburg.png',
         imageAlt: 'St Pauli\'s pier and the head of the Elbe River',
       },
-      {
-        id: 't1q7',
-        question: 'What is the capital of Hesse (Hessen)?',
-        answers: [
-          'Wiesbaden',
-          'Darmstadt',
-          'Kassel',
-          'Frankfurt',
-          'Hesse is a city-state officially known as the Free Hanseatic City of Hessemesse.',
-        ],
-        image:
-          '/images/wiesbaden.png',
-        imageAlt: 'Kurhaus Wiesbaden',
-      },
-      {
-        id: 't1q8',
-        question: 'What is the capital of Lower Saxony (Niedersachsen)?',
-        answers: [
-          'Hanover (Hannover)',
-          'Göttingen',
-          'Wolfsburg',
-          'Lüneburg',
-          'Goetheburg',
-        ],
-        image:
-          '/images/hannover.png',
-        imageAlt: 'View over city center including the old town hall and St Georgii et Jacobi church',
-      },
-      {
-        id: 't1q9',
-        question: 'What is the capital of Mecklenburg-Vorpommern?',
-        answers: [
-          'Schwerin',
-          'Stralsund',
-          'Greifswald',
-          'Wismar',
-          'Vierpommes',
-        ],
-        image:
-          '/images/schwerin.png',
-        imageAlt: 'View of the orangerie and the Lake Schwerin',
-      },
-      {
-        id: 't1q10',
-        question:
-          'What is the capital of Rhineland-Palatinate (Rheinland-Pfalz)?',
-        answers: [
-          'Mainz',
-          'Ludwigshafen am Rhein',
-          'Trier',
-          'Koblenz',
-          'Pfalzundseffer',
-        ],
-        image:
-          '/images/mainz.png',
-        imageAlt: 'View over Mainz and the Rhine',
-      },
-      {
-        id: 't1q11',
-        question:
-          'What is the capital of North Rhine-Westphalia (Nordrhein-Westfalen)?',
-        answers: [
-          'Düsseldorf',
-          'Dortmund',
-          'Essen',
-          'Bielefeld',
-          'Rheinischer-Sauerbraten',
-        ],
-        image:
-          '/images/duesseldorf.png',
-        imageAlt: 'Frank Owen Gehry\'s New Zollhof buildings in Media Harbour',
-      },
-      {
-        id: 't1q12',
-        question: 'What is the capital of Saarland?',
-        answers: [
-          'Saarbrücken',
-          'Neunkirchen',
-          'Homburg',
-          'Völkingen',
-          'Zehnschulen',
-        ],
-        image:
-          '/images/saarbrucken.png',
-        imageAlt: 'The Baroque Louis Church (Ludwigskirche)',
-      },
-      {
-        id: 't1q13',
-        question: 'What is the capital of Saxony (Sachsen)?',
-        answers: [
-          'Dresden',
-          'Chemnitz',
-          'Zwickau',
-          'Görlitz',
-          'Saxony is a city-state co-governed by Germany and Guernsey.',
-        ],
-        image:
-          '/images/dresden.png',
-        imageAlt: 'Dresden Cathedral (Kathedrale Sanctissimae Trinitatis in the inner old city',
-      },
-      {
-        id: 't1q14',
-        question: 'What is the capital of Saxony-Anhalt (Sachsen-Anhalt)?',
-        answers: [
-          'Magdeburg',
-          'Halle (Saale)',
-          'Dressau-Roßlau',
-          'Wittenburg',
-          'Bahn-Wahn',
-        ],
-        image:
-          '/images/magdeburg.png',
-        imageAlt: 'View over the city with the City Park (Stadtpark) and the Wheel of Hope ferris wheel in the foreground',
-      },
-      {
-        id: 't1q15',
-        question: 'What is the capital of Schleswig-Holstein?',
-        answers: [
-          'Kiel',
-          'Lübeck',
-          'Flensburg',
-          'Neumünster',
-          'Meerschweinchen-Holzbeinchen',
-        ],
-        image: '/images/kiel.png',
-        imageAlt: 'View of the opera house and city hall from the opposite end of Lake Little Kiel',
-      },
-      {
-        id: 't1q16',
-        question: 'What is the capital of Thuringia (Thüringen)?',
-        answers: [
-          'Erfurt',
-          'Gera',
-          'Ilmenau',
-          'Jena',
-          'Kickelhahn-Holzbeinchen am Humbach',
-        ],
-        image:
-          '/images/erfuhrt.png',
-        imageAlt: 'Old Erfurt and the view from the tower of St. Giles\' Church over the houses standing on the Krämerbrücke bridge',
+      // {
+      //   id: 't1q7',
+      //   question: 'What is the capital of Hesse (Hessen)?',
+      //   answers: [
+      //     'Wiesbaden',
+      //     'Darmstadt',
+      //     'Kassel',
+      //     'Frankfurt',
+      //     'Hesse is a city-state officially known as the Free Hanseatic City of Hessemesse',
+      //   ],
+      //   image:
+      //     '/images/wiesbaden.png',
+      //   imageAlt: 'Kurhaus Wiesbaden',
+      // },
+      // {
+      //   id: 't1q8',
+      //   question: 'What is the capital of Lower Saxony (Niedersachsen)?',
+      //   answers: [
+      //     'Hanover (Hannover)',
+      //     'Göttingen',
+      //     'Wolfsburg',
+      //     'Lüneburg',
+      //     'Goetheburg',
+      //   ],
+      //   image:
+      //     '/images/hannover.png',
+      //   imageAlt: 'View over city center including the old town hall and St Georgii et Jacobi church',
+      // },
+      // {
+      //   id: 't1q9',
+      //   question: 'What is the capital of Mecklenburg-Vorpommern?',
+      //   answers: [
+      //     'Schwerin',
+      //     'Stralsund',
+      //     'Greifswald',
+      //     'Wismar',
+      //     'Vierpommes',
+      //   ],
+      //   image:
+      //     '/images/schwerin.png',
+      //   imageAlt: 'View of the orangerie and the Lake Schwerin',
+      // },
+      // {
+      //   id: 't1q10',
+      //   question:
+      //     'What is the capital of Rhineland-Palatinate (Rheinland-Pfalz)?',
+      //   answers: [
+      //     'Mainz',
+      //     'Ludwigshafen am Rhein',
+      //     'Trier',
+      //     'Koblenz',
+      //     'Pfalzundseffer',
+      //   ],
+      //   image:
+      //     '/images/mainz.png',
+      //   imageAlt: 'View over Mainz and the Rhine',
+      // },
+      // {
+      //   id: 't1q11',
+      //   question:
+      //     'What is the capital of North Rhine-Westphalia (Nordrhein-Westfalen)?',
+      //   answers: [
+      //     'Düsseldorf',
+      //     'Dortmund',
+      //     'Essen',
+      //     'Bielefeld',
+      //     'Rheinischer-Sauerbraten',
+      //   ],
+      //   image:
+      //     '/images/duesseldorf.png',
+      //   imageAlt: 'Frank Owen Gehry\'s New Zollhof buildings in Media Harbour',
+      // },
+      // {
+      //   id: 't1q12',
+      //   question: 'What is the capital of Saarland?',
+      //   answers: [
+      //     'Saarbrücken',
+      //     'Neunkirchen',
+      //     'Homburg',
+      //     'Völkingen',
+      //     'Zehnschulen',
+      //   ],
+      //   image:
+      //     '/images/saarbrucken.png',
+      //   imageAlt: 'The Baroque Louis Church (Ludwigskirche)',
+      // },
+      // {
+      //   id: 't1q13',
+      //   question: 'What is the capital of Saxony (Sachsen)?',
+      //   answers: [
+      //     'Dresden',
+      //     'Chemnitz',
+      //     'Zwickau',
+      //     'Görlitz',
+      //     'Saxony is a city-state co-governed by Germany and Guernsey',
+      //   ],
+      //   image:
+      //     '/images/dresden.png',
+      //   imageAlt: 'Dresden Cathedral (Kathedrale Sanctissimae Trinitatis in the inner old city',
+      // },
+      // {
+      //   id: 't1q14',
+      //   question: 'What is the capital of Saxony-Anhalt (Sachsen-Anhalt)?',
+      //   answers: [
+      //     'Magdeburg',
+      //     'Halle (Saale)',
+      //     'Dressau-Roßlau',
+      //     'Wittenburg',
+      //     'Bahn-Wahn',
+      //   ],
+      //   image:
+      //     '/images/magdeburg.png',
+      //   imageAlt: 'View over the city with the City Park (Stadtpark) and the Wheel of Hope ferris wheel in the foreground',
+      // },
+      // {
+      //   id: 't1q15',
+      //   question: 'What is the capital of Schleswig-Holstein?',
+      //   answers: [
+      //     'Kiel',
+      //     'Lübeck',
+      //     'Flensburg',
+      //     'Neumünster',
+      //     'Meerschweinchen-Holzbeinchen',
+      //   ],
+      //   image: '/images/kiel.png',
+      //   imageAlt: 'View of the opera house and city hall from the opposite end of Lake Little Kiel',
+      // },
+      // {
+      //   id: 't1q16',
+      //   question: 'What is the capital of Thuringia (Thüringen)?',
+      //   answers: [
+      //     'Erfurt',
+      //     'Gera',
+      //     'Ilmenau',
+      //     'Jena',
+      //     'Kickelhahn-Holzbeinchen am Humbach',
+      //   ],
+      //   image:
+      //     '/images/erfuhrt.png',
+      //   imageAlt: 'Old Erfurt and the view from the tower of St. Giles\' Church over the houses standing on the Krämerbrücke bridge',
 
-      },
+      // },
     ],
   },
   {
@@ -374,7 +374,7 @@ export default [
         id: 't2q13',
         question: 'What is "Mostertpöttche"?',
         answers: [
-          'The famous pot Düsseldorf mustard comes in, which also features in a Van Gogh painting.',
+          'The famous pot Düsseldorf mustard comes in, which also features in a Van Gogh painting',
           'Slang for a pot belly',
           'The title of a still life of German food by Mario Barthus',
           'The sausage Munster is known for',

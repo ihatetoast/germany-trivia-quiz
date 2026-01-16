@@ -17,11 +17,24 @@ function App() {
     setQuizStarted((prev) => !prev);
   }
 
+  function handleRestartQuiz() {
+    setQuizStarted(false);
+    setTopic([]);
+    setTime(0);
+  }
+
   function handleSelectChange(timeVal) {
     const ms = timeVal === '0' ? 0 : parseInt(timeVal) * 1000;
     setTime(ms)
-    console.log(ms);
   }
+
+  let shuffledQuestions;
+  if(quizStarted) {
+    shuffledQuestions = topic.questions.sort(() => Math.random() - 0.5)
+    console.log(shuffledQuestions);
+  }
+
+
   return (
     <>
       <Header topic={topic.topic ?? 'German cultural trivia'} />
@@ -29,12 +42,10 @@ function App() {
         {!quizStarted && (
           <>
             <section className='start-page-intro'>
-              <p className='instructions-para'>
-                Choose a topic and a difficulty level (how fast the timer counts down) for each question. If you make no choice, the quiz will be untimed. 
-              </p>
+               <TimeSelect onSelect={handleSelectChange}/>
             </section>
             <section className='btns-container'>
-              <TimeSelect onSelect={handleSelectChange}/>
+             
               {TOPICS.map((t) => (
                 <Button
                   key={t.id}
@@ -50,10 +61,10 @@ function App() {
         {quizStarted && (
           <QuizPage
             timerVal={time}
-            onStartQuiz={handleStartQuiz}
+            onRestartQuiz={handleRestartQuiz}
             questionData={{
               topicTitle: topic.topic,
-              questions: topic.questions,
+              questions: shuffledQuestions,
               resultsImg: topic.resultsImg,
               resultsImgAlt: topic.resultsImgAlt,
             }}

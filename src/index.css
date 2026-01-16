@@ -26,7 +26,7 @@ i decide to have a black-flag and black and off-white and white
   --white: #fff;
   --off-white: #e2e2e2;
 
-  --flag-stripe-height: 150px;
+  --flag-stripe-height: 200px;
 }
 
 * {
@@ -71,20 +71,15 @@ button {
 
 /* MAIN APP PAGE / STARTING PAGE  */
 .start-page-intro {
-  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background: var(--red);
   color: var(--white);
   display: flex;
   height: var(--flag-stripe-height);
-  padding: 1rem 0;
   align-items: center;
   text-align: center;
-}
-.instructions-para {
-  font-size: 1rem;
-  max-width: 100%;
-  padding: 0 1rem;
-  word-wrap: break-word;
 }
 
 .btns-container {
@@ -104,6 +99,7 @@ button {
   border-radius: 5px;
   text-align: center;
   max-width: 50rem;
+
 }
 
 .quiz-question-intro {
@@ -113,6 +109,7 @@ button {
   width: 100%;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
 .quiz-question {
@@ -195,9 +192,9 @@ button {
   color: #fff;
   text-decoration: none;
 }
-/* fix the black. if wrong answer turn color to red, it is hard to see  */
+
 .answer-btn {
-  background-image: linear-gradient(to right, #000 0%, #3b4041 51%, #000 100%);
+  background: var(--black);
 }
 .answer-btn {
   background-size: 200% auto;
@@ -230,115 +227,8 @@ button {
   animation: incorrect-shake 0.5s 2;
 }
 
-/* TIMER SELECT   */
-.timer-select-container {
-  display: flex;
-  flex-direction: column;
-  padding: 0.25rem;
-}
-.timer-select-container label {
-  font-family: 'Domine', serif;
-}
-.timer-select-container .option-value,
-.timer-select-container option {
-  font-family: 'Manrope', sans-serif;
-}
+/* CUSTOM SELECT NOT IN MODULE  */
 
-.timer-select-container select,
-::picker(select) {
-  appearance: base-select;
-}
-
-.timer-select-container select {
-  border: 2px solid var(--very-light-grey);
-  background: #eeeeee;
-  padding: 10px;
-  transition: 0.4s;
-}
-
-.timer-select-container select:hover,
-.timer-select-container select:focus {
-  background: #dddddd;
-}
-
-.timer-select-container select::picker-icon {
-  color: var(--grey);
-  transition: 0.4s rotate;
-}
-
-.timer-select-container select:open::picker-icon {
-  rotate: 180deg;
-}
-
-::picker(select) {
-  border: none;
-  border-radius: 8px;
-  opacity: 0;
-  transition: all 0.4s allow-discrete;
-  /* top: calc(anchor(bottom) + 1px);
-  left: anchor(10%); */
-}
-
-::picker(select):popover-open {
-  opacity: 1;
-}
-
-.timer-select-container option::checkmark {
-  order: 1;
-  margin-left: auto;
-  content: '☑️';
-}
-
-.timer-select-container option {
-  display: flex;
-  justify-content: flex-start;
-  gap: 20px;
-  border: 2px solid var(--very-light-grey);
-  background: var(--off-white);
-  padding: 10px;
-  transition: 0.4s;
-}
-
-.timer-select-container option:checked {
-  font-weight: bold;
-}
-
-.timer-select-container option:first-of-type {
-  border-radius: 8px 8px 0 0;
-}
-
-.timer-select-container option:last-of-type {
-  border-radius: 0 0 8px 8px;
-}
-
-@starting-style {
-  ::picker(select):popover-open {
-    opacity: 0;
-  }
-}
-
-.timer-select-container
-  option:not(.timer-select-container option:last-of-type) {
-  border-bottom: none;
-}
-
-.timer-select-container option:nth-of-type(odd) {
-  background: white;
-}
-
-.timer-select-container option:hover,
-.timer-select-container option:focus {
-  background: plum;
-}
-
-.timer-select-container option .option-icon {
-  font-size: 1.6rem;
-  text-box: trim-both cap alphabetic;
-}
-
-selectedcontent .option-icon {
-  display: none;
-}
 
 /* TIMERS PROGRESS BAR AND BEER  */
 #timer-progress-bar.hidden {
@@ -407,15 +297,24 @@ selectedcontent .option-icon {
   .quiz-question-intro {
     flex-direction: column;
     align-items: center;
+    max-width: 57rem;
   }
   .quiz-question {
     flex-direction: row;
     gap: 0;
-    align-items: flex-end;
+    align-items: center;
     align-self: flex-start;
+    width: 75%;
+    max-width: 56rem;
+    height: 150px;
   }
+
   .quiz-question h2 {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    flex-grow: 1;
+    display: inline-block;
+    text-align: left;
+    margin-left: 1rem;
   }
 
   .quiz-board {
@@ -424,5 +323,10 @@ selectedcontent .option-icon {
 
   .answer .answer-btn {
     font-size: 1.35rem;
+  }
+
+  .timer-div {
+    position: absolute;
+    left: 75%;
   }
 }

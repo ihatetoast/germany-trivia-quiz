@@ -1,13 +1,12 @@
 import { useCallback, useState } from 'react';
 
-
 import QuizQuestion from './QuizQuestion.jsx';
 
 import Results from './Results.jsx';
 
+import GermanCitiesResults from './GermanCitiesResults.jsx';
 
-export default function QuizPage({timerVal, onStartQuiz, questionData}) {
-  console.log(questionData);
+export default function QuizPage({ timerVal, onRestartQuiz, questionData }) {
   const [usersAnswers, setUsersAnswers] = useState([]);
   // note to remember in the future--if you can, derive. derive until you run out geyassoline
   // length number is number of answered + 1 (bc of 0 idx)
@@ -16,15 +15,15 @@ export default function QuizPage({timerVal, onStartQuiz, questionData}) {
 
   const quizCompleted = questionData.questions.length === currentQuestionIdx;
 
-  // useCallback to avoid recreating fcn on rerendering
-  const handleSelectUserAnswer = useCallback(
-    function handleSelectUserAnswer(answer) {
-      setUsersAnswers((prevAnswer) => {
-        return [...prevAnswer, answer];
-      });
-    },
-    []
-  );
+  // useCallback to avoid recreating fcn on rerendering when user picks and answer
+  const handleSelectUserAnswer = useCallback(function handleSelectUserAnswer(
+    answer
+  ) {
+    setUsersAnswers((prevAnswer) => {
+      return [...prevAnswer, answer];
+    });
+  },
+  []);
 
   const handleNotAnswered = useCallback(() => {
     handleSelectUserAnswer(null);
@@ -33,24 +32,36 @@ export default function QuizPage({timerVal, onStartQuiz, questionData}) {
   // results will have some data (percentage) and the right answers
   // the german states answers will show the map.
   // Any other quiz will just be answers
-  const statesAnswers = <img className='germany-map' src={questionData.resultsImg} alt={questionData.resultsImgAlt} />
-;
-const foodDrinkAnswers = <span>{questionData.topicTitle} FOOD DRINK DEAL WITH LATER</span>;
+  const statesAnswers = <GermanCitiesResults usersAnswers={usersAnswers}/>;
+
+  // results will have two sections: stats and answers.
+  const foodDrinkAnswers = (
+    <span>{questionData.topicTitle} FOOD DRINK DEAL WITH LATER</span>
+  );
   if (quizCompleted) {
-    return <Results title='Quiz is over' onStartQuiz={onStartQuiz}>{"bob"}
-      {questionData.topicTitle === 'German capital cities' ? statesAnswers : foodDrinkAnswers}
-    </Results>;
+    return (
+      <Results
+        title={`${questionData.topicTitle} quiz completed`}
+        questionData={questionData}
+        usersAnswers={usersAnswers}
+        onRestartQuiz={onRestartQuiz}
+      >
+        {questionData.topicTitle === 'German capital cities'
+          ? statesAnswers
+          : foodDrinkAnswers}
+      </Results>
+    );
   }
 
   return (
     <div className='quiz-board'>
-      <QuizQuestion 
-      key={currentQuestionIdx}
-      idx={currentQuestionIdx}
-      timerVal={timerVal}
-      question={questionData.questions[currentQuestionIdx]}
-      onNotAnswered={handleNotAnswered}
-      handleAnswerClick={handleSelectUserAnswer}
+      <QuizQuestion
+        key={currentQuestionIdx}
+        idx={currentQuestionIdx}
+        timerVal={timerVal}
+        question={questionData.questions[currentQuestionIdx]}
+        onNotAnswered={handleNotAnswered}
+        handleAnswerClick={handleSelectUserAnswer}
       />
     </div>
   );

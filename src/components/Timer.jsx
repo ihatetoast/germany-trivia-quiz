@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import ProgressBier from './ProgressBier';
 export default function Timer({ duration, onTimesUp, answerState }) {
-  const [isMobile] = useState(window.innerWidth < 768); // no need to set it.
+  const [isMobile] = useState(window.innerWidth < 768); 
 
   const [timeRemaining, setTimeRemaining] = useState(duration);
   // Why timers need useEffect: they're counting down
@@ -21,7 +21,7 @@ export default function Timer({ duration, onTimesUp, answerState }) {
     const interval = setInterval(() => {
       setTimeRemaining((prevTime) => prevTime - 100);
     }, 100);
-
+    // strict mode will make this run twice, clean up existing so we have only one at a time
     return () => {
       clearInterval(interval);
     };

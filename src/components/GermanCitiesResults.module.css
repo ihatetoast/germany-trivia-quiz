@@ -1,0 +1,13 @@
+.citiesQuizContainer {
+  border: 1px solid chartreuse;
+}
+
+.mapContainer {
+  width: 500px;
+  aspect-ratio: 250 / 349;
+}
+
+.germanyMap {
+  width: 100%;
+  
+}
