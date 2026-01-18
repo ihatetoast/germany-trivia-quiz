@@ -1,4 +1,61 @@
-.resultItem.hide {
-  display: none;
+.results {
+  background: var(--off-white);
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+
+.results h2 {
+  font-size: 1.2rem;
+}
+
+.barchart {
+  display: flex;
+  flex-direction: column;
+}
+
+.resultItem {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  height: 42px;
+  border-bottom: 1px solid var(--light-grey);
+}
+
+.resultItem:first-child {
+
+   border-top: 1px solid var(--light-grey);
+}
+
+.iconNameContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.icon {
+  display: inline-flex;
+  height: 1.25rem;
+  width: 1.25rem;
+}
+.name {
+    display: inline-flex;
+    margin-left: 0.25rem;
+}
+.score {
+  margin-left: 1.5rem;
+  display: flex;
+  justify-content: flex-start ;
+
+}
+
+.name, .score {
+    font-family: var(--sans-serif);
+    font-size: 0.9rem;
+}
+
+
+.barGraphBar {
+  background-color: var(--bar-color);
+  width: var(--bar-width);
+  height: 100%;
 }
 

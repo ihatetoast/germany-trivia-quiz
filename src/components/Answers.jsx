@@ -7,10 +7,11 @@ export default function Answers({
   selectedAnswer,
   answerState,
   onSelect,
+  onSkip,
+  addSkip,
 }) {
   // don't shuffle again when state changes
 const shuffledAnswerOptions = useRef();
-
 
 if(!shuffledAnswerOptions.current) {
   shuffledAnswerOptions.current = [...answerOptions];
@@ -45,6 +46,11 @@ if(!shuffledAnswerOptions.current) {
           </li>
         );
       })}
+      {addSkip && <li><Button handleClick={() => onSkip()}>Skip!</Button></li>}
+ 
     </ul></div>
   );
 }
+
+
+

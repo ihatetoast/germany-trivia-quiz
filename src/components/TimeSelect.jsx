@@ -40,7 +40,8 @@ const TimeSelect = ({ onSelect }) => {
 
   return (
     <div className={classes.timerselectContainer } ref={dropdownRef}>
-      <label id='time-select-label'>Go easy without a timer or challenge yourself by choosing a time limit.</label>
+      <p>Go easy without a timer or challenge yourself by choosing a time limit. If no choice is made, the default is untimed.</p>
+      <label id='time-select-label'>Choose a difficulty level</label>
       <Button
         classes={classes.customSelectButton}
         aria-labelledby='time-select-label'
@@ -54,7 +55,7 @@ const TimeSelect = ({ onSelect }) => {
             <span className={classes.optionLabel}>{selected.label}</span>
           </>
         ) : (
-          'Select a difficulty level'
+          'Choose level ...'
         )}
       </Button>
       {isOpen && (

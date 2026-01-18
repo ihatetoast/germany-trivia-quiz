@@ -4,7 +4,7 @@ import React from 'react'
 // import and don't pass down.
 import TOPICS from '../topics.js';
 
-import classes from './GermanCitiesResults.module.css'
+import classes from './CitiesResultsContent.module.css'
 
   // resultsImg is '/images/map-304071_1280.png',
   //   resultsImgAlt
@@ -25,17 +25,18 @@ import classes from './GermanCitiesResults.module.css'
 
   // make sure there is some screenreader option
 
-const GermanCitiesResults = ({}) => {
+const CitiesResultsContent = ({userAnswers}) => {
+  console.log(userAnswers);
   const capitalCitiesData = TOPICS.find(t => t.id === '1');
   console.log(capitalCitiesData);
   return (
     <div className={classes.citiesQuizContainer}>
       <div className={classes.mapContainer}>
-        <img className='germany-map' src={capitalCitiesData.resultsImg} alt={capitalCitiesData.resultsImgAlt} />
+        <img className={classes.germanyMap} src={capitalCitiesData.resultsImg} alt={capitalCitiesData.resultsImgAlt} />
       </div>
       
     </div>
   )
 }
 
-export default GermanCitiesResults
+export default CitiesResultsContent

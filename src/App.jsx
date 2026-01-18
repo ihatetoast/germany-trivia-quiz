@@ -12,6 +12,8 @@ function App() {
   const [topic, setTopic] = useState([]);
   const [time, setTime] = useState(0);
 
+  const [gameIsOver, setGameIsOver] = useState(false)
+
   function handleStartQuiz(topicId) {
     setTopic(TOPICS[topicId - 1]);
     setQuizStarted((prev) => !prev);
@@ -25,27 +27,29 @@ function App() {
 
   function handleSelectChange(timeVal) {
     const ms = timeVal === '0' ? 0 : parseInt(timeVal) * 1000;
-    setTime(ms)
+    setTime(ms);
   }
 
   let shuffledQuestions;
-  if(quizStarted) {
-    shuffledQuestions = topic.questions.sort(() => Math.random() - 0.5)
-    console.log(shuffledQuestions);
+  if (quizStarted) {
+    shuffledQuestions = topic.questions.sort(() => Math.random() - 0.5);
   }
-
 
   return (
     <>
-      <Header topic={topic.topic ?? 'German cultural trivia'} />
+      <Header topic={topic.topic ?? 'German cultural trivia'}>
+        {gameIsOver && <Button handleClick={handleRestartQuiz} classes='start-btn '>
+          Try again?
+        </Button>}
+        
+      </Header>
       <main>
         {!quizStarted && (
           <>
             <section className='start-page-intro'>
-               <TimeSelect onSelect={handleSelectChange}/>
+              <TimeSelect onSelect={handleSelectChange} />
             </section>
             <section className='btns-container'>
-             
               {TOPICS.map((t) => (
                 <Button
                   key={t.id}
@@ -61,7 +65,7 @@ function App() {
         {quizStarted && (
           <QuizPage
             timerVal={time}
-            onRestartQuiz={handleRestartQuiz}
+            restartQuiz={handleRestartQuiz}
             questionData={{
               topicTitle: topic.topic,
               questions: shuffledQuestions,

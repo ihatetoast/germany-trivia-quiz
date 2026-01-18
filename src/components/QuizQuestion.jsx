@@ -2,11 +2,9 @@ import { useState } from 'react';
 
 import Timer from './Timer.jsx';
 import Answers from './Answers.jsx';
-
 import classes from './QuizQuestion.module.css';
 
-const TIME_TO_NEXT_QUESTION = 2000;
-const TIME_TO_REVEAL_ANSWER = 1000;
+
 export default function QuizQuestion({
   timerVal,
   question,
@@ -17,6 +15,10 @@ export default function QuizQuestion({
     selectedAnswer: '',
     isCorrect: null,
   });
+
+  const TIME_TO_NEXT_QUESTION = 2000;
+const TIME_TO_REVEAL_ANSWER = 1000;
+const SKIP_TIME = 0;
 
   // initial val from user's choice or default
   let timerDuration = timerVal;
@@ -54,10 +56,20 @@ export default function QuizQuestion({
     }, TIME_TO_REVEAL_ANSWER);
   }
 
+  function handleSkipQuestion(){
+    setUserAnswer({
+      selectedAnswer: null, 
+      isCorrect: null, 
+    });
+      setTimeout(() => {
+        handleAnswerClick(null);
+      }, TIME_TO_NEXT_QUESTION);
+  }
+
   if (userAnswer.selectedAnswer && userAnswer.isCorrect !== null) {
     answerState = userAnswer.isCorrect ? 'correct' : 'incorrect';
   } else if (userAnswer.selectedAnswer) {
-    answerState = 'answered';
+    answerState = 'answered'; // FIX THIS STYLING
   }
 
   const timed = timerVal !== 0;
@@ -78,10 +90,10 @@ export default function QuizQuestion({
     </div>
   );
   return (
-    <div className='quiz-question-container'>
-      <div className='quiz-question-intro'>
-        {timed && <div className='timer-div'> {quizTimer} </div>}
-        <div className='quiz-question'>
+    <div className={classes.quizQuestionContainer}>
+      <div className={classes.quizQuestionIntro}>
+        {timed && <div className={classes.timer}> {quizTimer} </div>}
+        <div className={classes.quizQuestion}>
           {question.image && quizImage}
           <h2>{question.question}</h2>
         </div>
@@ -90,7 +102,9 @@ export default function QuizQuestion({
       <Answers
         answerOptions={question.answers}
         onSelect={handleSelectUserAnswer}
+        onSkip={handleSkipQuestion}
         answerState={answerState}
+        addSkip={timerDuration === 0}
         selectedAnswer={userAnswer.selectedAnswer}
       />
     </div>

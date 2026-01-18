@@ -1,8 +1,10 @@
 import wurst from '../assets/images/sausage-5448952_1280.png';
 
+import Button from './Button'
+
 import classes from './Header.module.css';
 
-export default function Header({ topic }) {
+export default function Header({ topic, children }) {
   return (
     <header className={classes.header}>
       <div>
@@ -16,7 +18,7 @@ export default function Header({ topic }) {
         alt='a sausage in sunglasses smiling and giving the thumbs up'
       />
       </div>
-      
+      {children}
     </header>
   );
 }

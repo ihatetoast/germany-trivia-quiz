@@ -5,7 +5,7 @@ and their contents' colors */
   align-items: center;
   background: #000;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   justify-content: center;
   max-width: 100%;
   overflow-wrap: break-word;

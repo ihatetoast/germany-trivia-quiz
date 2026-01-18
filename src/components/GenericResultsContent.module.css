@@ -1,0 +1,42 @@
+.resultsContainer {
+  padding: 0.5rem 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 0.25rem;
+}
+
+.resultCard {
+  box-shadow: 0px 4px 7px 0px var(--light-grey);
+  border-radius: var(--border-radius);
+  padding: 0.5rem;
+}
+
+.question {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.wrong {
+  color: var(--red);
+}
+
+@media (min-width: 768px) {
+  .resultsContainer {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+  .question {
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+}
+@media (min-width: 900px) {
+  .resultsContainer {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem 0.5rem;
+  }
+  .question {
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+}
