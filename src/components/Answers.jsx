@@ -7,7 +7,6 @@ export default function Answers({
   selectedAnswer,
   answerState,
   onSelect,
-  onSkip,
   addSkip,
 }) {
   // don't shuffle again when state changes
@@ -46,8 +45,7 @@ if(!shuffledAnswerOptions.current) {
           </li>
         );
       })}
-      {addSkip && <li><Button handleClick={() => onSkip()}>Skip!</Button></li>}
- 
+      {addSkip && <li><Button handleClick={() => onSelect(null)}>Skip!</Button></li>}
     </ul></div>
   );
 }

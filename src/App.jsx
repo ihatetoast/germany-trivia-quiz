@@ -12,7 +12,7 @@ function App() {
   const [topic, setTopic] = useState([]);
   const [time, setTime] = useState(0);
 
-  const [gameIsOver, setGameIsOver] = useState(false)
+  const [gameIsOver, setGameIsOver] = useState(false);
 
   function handleStartQuiz(topicId) {
     setTopic(TOPICS[topicId - 1]);
@@ -38,10 +38,11 @@ function App() {
   return (
     <>
       <Header topic={topic.topic ?? 'German cultural trivia'}>
-        {gameIsOver && <Button handleClick={handleRestartQuiz} classes='start-btn '>
-          Try again?
-        </Button>}
-        
+        {gameIsOver && (
+          <Button handleClick={handleRestartQuiz} classes='start-btn '>
+            Try again?
+          </Button>
+        )}
       </Header>
       <main>
         {!quizStarted && (
@@ -49,15 +50,17 @@ function App() {
             <section className='start-page-intro'>
               <TimeSelect onSelect={handleSelectChange} />
             </section>
-            <section className='btns-container'>
+            <section className='btn-cards-container'>
               {TOPICS.map((t) => (
-                <Button
-                  key={t.id}
-                  handleClick={() => handleStartQuiz(t.id)}
-                  classes='start-btn '
-                >
-                  {`${t.topic} quiz`}
-                </Button>
+                <div className='start-quiz-card'>
+                  <p>Test your knowledge on {t.topic}.</p>
+                  <Button
+                    key={t.id}
+                    handleClick={() => handleStartQuiz(t.id)}
+                    classes='start-btn '
+                  >Start quiz
+                  </Button>
+                </div>
               ))}
             </section>
           </>

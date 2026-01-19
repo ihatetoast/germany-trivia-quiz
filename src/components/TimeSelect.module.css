@@ -17,7 +17,7 @@
 
 .customSelectButton {
   display: flex;
-  width: 80%;
+  width: 14rem;
   padding: 0.75rem 1rem;
   text-align: left;
   background: white;
@@ -59,7 +59,15 @@
 
 .optionLabel {
     color: var(--black);
-  font-size: 1.15rem;
 }
 
 
+@media screen and (min-width: 768px) {
+  .timerselectContainer {
+    max-width: 38rem;
+  }
+
+  .optionLabel {
+   font-size: 1.2rem;
+}
+}

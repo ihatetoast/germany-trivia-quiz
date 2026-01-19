@@ -73,7 +73,8 @@ button {
   font-style: normal;
 }
 
-ol, ul {
+ol,
+ul {
   list-style: none;
 }
 
@@ -90,14 +91,27 @@ ol, ul {
   text-align: center;
 }
 
-.btns-container {
+.btn-cards-container {
   background: var(--gold);
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 1rem;
 
   min-height: var(--flag-stripe-height);
   padding: 1rem 0;
+}
+
+.start-quiz-card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  margin: 0 auto;
+  padding: 1rem;
+  width: 18rem;
+}
+
+.start-quiz-card p {
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
 /* QUIZBOARD no need for module*/
@@ -107,16 +121,12 @@ ol, ul {
   border-radius: var(--border-radius);
   text-align: center;
   max-width: 50rem;
-
 }
 
 .answer-options-container {
   width: 100%;
   padding: 0.25rem;
 }
-
-
-
 
 #answer-options {
   list-style: none;
@@ -187,7 +197,7 @@ ol, ul {
 /* figure something else out.  */
 /* font color is just for now to check if clicked and right/wrong work */
 .answer-btn.answered {
-border: 1px solid var(--green-light);
+  border: 1px solid var(--green-light);
 }
 .answer-btn.correct {
   color: var(--gold);
@@ -201,7 +211,6 @@ border: 1px solid var(--green-light);
 }
 
 /* CUSTOM SELECT NOT IN MODULE  */
-
 
 /* TIMERS PROGRESS BAR AND BEER  */
 #timer-progress-bar.hidden {
@@ -249,8 +258,25 @@ border: 1px solid var(--green-light);
   }
 }
 
-
 @media screen and (min-width: 768px) {
+
+.btn-cards-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+    padding: 1rem 2rem;
+}
+
+.start-quiz-card {
+  width: 20rem;
+}
+
+.start-quiz-card p {
+  font-size: 1.25rem;
+}
+
+
+
   .start-btn {
     max-width: 20rem;
     width: 100%;
@@ -263,7 +289,4 @@ border: 1px solid var(--green-light);
   .answer .answer-btn {
     font-size: 1.35rem;
   }
-
-
 }
-
