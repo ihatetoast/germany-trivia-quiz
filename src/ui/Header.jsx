@@ -1,7 +1,5 @@
 import wurst from '../assets/images/sausage-5448952_1280.png';
 
-import Button from './Button'
-
 import classes from './Header.module.css';
 
 export default function Header({ topic, children }) {

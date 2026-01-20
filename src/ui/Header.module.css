@@ -10,7 +10,7 @@ and their contents' colors */
   max-width: 100%;
   overflow-wrap: break-word;
   padding: 1rem;
-  height: var(--flag-stripe-height);
+  min-height: var(--flag-stripe-height);
 }
 
 .header h1,
@@ -57,5 +57,12 @@ and their contents' colors */
   width: 50px;
   aspect-ratio: 10 / 16;
   overflow: hidden;
+}
+}
+
+@media screen and (min-width: 900px) {
+  .header {
+  padding: 1rem;
+  min-height: unset;
 }
 }

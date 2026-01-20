@@ -1,4 +1,4 @@
-import { useCallback,useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import QuizQuestion from './QuizQuestion.jsx';
 
@@ -26,32 +26,85 @@ export default function QuizPage({ timerVal, questionData, restartQuiz }) {
   },
   []);
 
-
   const handleNotAnswered = useCallback(() => {
     handleSelectUserAnswer(null);
   }, [handleSelectUserAnswer]);
 
-  useEffect(() =>{
-    if(usersAnswers.length === questionData.length) {
-          restartQuiz()
+  useEffect(() => {
+    if (usersAnswers.length === questionData.length) {
+      restartQuiz();
     }
-  }, [questionData, usersAnswers, restartQuiz])
+  }, [questionData, usersAnswers, restartQuiz]);
+
+  const quizLength = usersAnswers.length;
+
+  // right
+  const rLength = usersAnswers.filter(
+    (ans, i) => ans === questionData.questions[i].answers[0]
+  ).length;
+  const rPct = getPercentageStr(rLength, quizLength, 1);
+  // skip
+  const sLength = usersAnswers.filter((ans) => ans === null).length;
+  const sPct = getPercentageStr(sLength, quizLength, 1);
+  // wrong
+  const wLength = quizLength - rLength - sLength;
+  const wPct = getPercentageStr(wLength, quizLength, 1);
+
+  function getPercentageStr(part, whole, decimal) {
+    const pString = `${((part / whole) * 100).toFixed(decimal)}%`;
+    return pString;
+  }
+  const resultData = [
+    {
+      name: 'right',
+      count: rLength,
+      percentage: rPct,
+      color: 'var(--black)',
+    },
+    {
+      name: 'wrong',
+      count: wLength,
+      percentage: wPct,
+      color: 'var(--red)',
+    },
+     {
+      name: 'skip',
+      count: sLength,
+      percentage: sPct,
+      color: 'var(--gold)',
+    },
+  ];
 
   // results will have some data (percentage) and the right answers
-  // the german states answers will show the map.
-  // Any other quiz will just be answers
-  const capCitiesResults = <CitiesResultsContent usersAnswers={usersAnswers}/>;
+  // the german states answers will show the map.Any other quiz will just be answers
+  const capCitiesResults = (
+    <CitiesResultsContent
+      usersAnswers={usersAnswers}
+      questionData={questionData}
+      rightCount={rLength}
+      imageData={{
+        image: questionData.resultsImg,
+        imageAlt: questionData.resultsImgAlt,
+      }}
+    />
+  );
 
   // results will have two sections: stats and answers.
-  const genericResults = <GenericResultsContent usersAnswers={usersAnswers}  questions={questionData.questions}/>
+  const genericResults = (
+    <GenericResultsContent
+      usersAnswers={usersAnswers}
+      questions={questionData.questions}
+    />
+  );
+
   if (quizCompleted) {
     return (
       <Results
-        title={`${questionData.topicTitle} quiz completed`}
-        questionData={questionData}
-        usersAnswers={usersAnswers}
+        title={`${questionData.topicTitle} results:`}
+        resultData={resultData}
       >
-        {questionData.topicTitle === 'German capital cities'
+        {questionData.topicTitle === 'German capital cities' ||
+        questionData.topicTitle === 'TESTING CITIES'
           ? capCitiesResults
           : genericResults}
       </Results>

@@ -4,7 +4,7 @@ import { wavesSharkFin, unicornHead, lemon, sausage  } from '@lucide/lab';
 
 import { useEffect, useState, useRef } from 'react';
 
-import Button from './Button';
+import Button from '../ui/Button';
 
 import classes from './TimeSelect.module.css';
 
@@ -40,7 +40,7 @@ const TimeSelect = ({ onSelect }) => {
 
   return (
     <div className={classes.timerselectContainer } ref={dropdownRef}>
-      <p>Go easy without a timer or challenge yourself by choosing a time limit. If no choice is made, the default is untimed.</p>
+      <p>Go easy without a timer or challenge yourself by choosing a time limit (default is untimed).</p>
       <label id='time-select-label'>Choose a difficulty level</label>
       <Button
         classes={classes.customSelectButton}

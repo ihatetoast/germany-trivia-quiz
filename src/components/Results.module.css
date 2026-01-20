@@ -1,29 +1,34 @@
 .results {
-  background: var(--off-white);
   display: flex;
   flex-direction: column;
-  padding: 0.5rem;
 }
 
 .results h2 {
   font-size: 1.2rem;
+  text-align: center;
+}
+
+.statsContainer {
+  background: var(--red);
+  padding: 0.5rem;
+}
+
+.stats {
+  padding: 0.5rem 0.25rem;
+  background: var(--white);
 }
 
 .barchart {
   display: flex;
   flex-direction: column;
+  width: 290px;
+  margin: 0 auto;
 }
 
 .resultItem {
   display: grid;
   grid-template-columns: 5rem 1fr;
-  height: 42px;
-  border-bottom: 1px solid var(--light-grey);
-}
-
-.resultItem:first-child {
-
-   border-top: 1px solid var(--light-grey);
+  height: 24px;
 }
 
 .iconNameContainer {
@@ -37,21 +42,24 @@
   width: 1.25rem;
 }
 .name {
-    display: inline-flex;
-    margin-left: 0.25rem;
+  display: inline-flex;
+  margin-left: 0.25rem;
 }
 .score {
   margin-left: 1.5rem;
   display: flex;
-  justify-content: flex-start ;
-
+  justify-content: flex-start;
+  display: none;
 }
 
-.name, .score {
-    font-family: var(--sans-serif);
-    font-size: 0.9rem;
+.name,
+.score {
+  font-family: var(--sans-serif);
+  font-size: 0.9rem;
 }
-
+.barContainer {
+  background: var(--very-light-grey);
+}
 
 .barGraphBar {
   background-color: var(--bar-color);
@@ -59,3 +67,27 @@
   height: 100%;
 }
 
+.resultAnswers {
+  background: var(--gold);
+}
+
+@media screen and (min-width: 768px) {
+  .score {
+    margin-left: 1.5rem;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .resultItem {
+    height: 42px;
+  }
+
+  .barchart {
+    width: 500px;
+  }
+}
+
+
+@media screen and (min-width: 900px) {
+
+}

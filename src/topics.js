@@ -1,9 +1,104 @@
 export default [
   {
+    id: '10000001',
+    topic: 'TESTING CITIES',
+    resultsImg: {
+      src: '/images/map-304071_1280.png',
+      alt: "Map of Germany showing the states' borders",
+      srcMob: '/images/germany-29222_1280.png',
+      altMob: "Map of Germany showing the states' borders",
+    },
+    questions: [
+      {
+        id: 'stuttgart',
+        question: 'Baden-Württemberg',
+        answers: [
+          'Stuttgart',
+          'Baden-Württemberg is a city-state and its own capital.',
+          'Ulm',
+          'Heidelberg',
+          'Badenschmaden',
+        ],
+        image: '/images/stuttgart.png',
+        imageAlt: 'Wuerttemberg Mausoleum with a vineyard in the foreground',
+      },
+      {
+        id: 'munich',
+        question: 'Bavaria (Bayern)',
+        answers: [
+          'Munich (München)',
+          'Augsberg',
+          'Ingolstadt',
+          'Regensburg',
+          'Oberammergau-Unterammergau',
+        ],
+        image: '/images/munich.png',
+        imageAlt: 'Marienplatz with the New City Hall (Neues Rathaus)',
+      },
+      {
+        id: 'berlin',
+        question: 'Berlin',
+        answers: [
+          'Berlin is a city-state and is its own capital',
+          'Berlinstadt',
+          'Ost-West-Berlinerhaven',
+          'Berlinnenstadt',
+          'Bärland',
+        ],
+        image: '/images/berlin.png',
+        imageAlt:
+          'Drone view of the Spree River, Museum Island, and Berlin Palace',
+      },
+      {
+        id: 'potsdam',
+        question: 'Brandenburg',
+        answers: [
+          'Potsdam',
+          'Brandenburg is a city-state and its own capital',
+          'Oranienburg',
+          'Petershagen-Eggersdorf',
+          'Parisdorf',
+        ],
+        image: '/images/potsdam.png',
+        imageAlt:
+          'view of old city hall with the statue of Fortuna auf dem Fortunaportal in the foreground',
+      },
+      {
+        id: 'bremen',
+        question: 'Bremen',
+        answers: [
+          'Bremen is a city-state and its own capital',
+          'Havenbremer',
+          'Bremänner',
+          'Schildkröte',
+          'Bremen is not a German city, lost in a poker game against Liechtenstein',
+        ],
+        image: '/images/bremen.png',
+        imageAlt: 'Bremen market place (Marktplatz)',
+      },
+      {
+        id: 'hamburg',
+        question: 'Hamburg',
+        answers: [
+          'Hamburg is a city-state and its own capital',
+          'Inner Alster',
+          'Elbe',
+          'Wandsbek',
+          'Rote Grützendorf',
+        ],
+        image: '/images/hamburg.png',
+        imageAlt: "St Pauli's pier and the head of the Elbe River",
+      },
+    ],
+  },
+  {
     id: '1000000',
-    topic: 'TESTING',
-    resultsImg: '/images/sauerbraten-2512443_640.jpg',
-    resultsImgAlt: 'TESTING TESTING BLAH BLAHBLAH',
+    topic: 'TESTING GENERIC',
+    resultsImg: {
+      src: '/images/sauerbraten-2512443_640.jpg',
+      alt: 'TESTING TESTING BLAH BLAHBLAH',
+    },
+
     questions: [
       {
         id: 'testq1',
@@ -76,11 +171,16 @@ export default [
   {
     id: '1',
     topic: 'German capital cities',
-    resultsImg: '/images/map-304071_1280.png',
-    resultsImgAlt: "Map of Germany showing the states' borders",
+    resultsImg: {
+      src: '/images/map-304071_1280.png',
+      alt: "Map of Germany showing the states' borders",
+      srcMob: '/images/germany-29222_1280.png',
+      altMob: "Map of Germany showing the states' borders",
+    },
+
     questions: [
       {
-        id: 't1q1',
+        id: 'stuttgart',
         question: 'Baden-Württemberg',
         answers: [
           'Stuttgart',
@@ -93,7 +193,7 @@ export default [
         imageAlt: 'Wuerttemberg Mausoleum with a vineyard in the foreground',
       },
       {
-        id: 't1q2',
+        id: 'munich',
         question: 'Bavaria (Bayern)',
         answers: [
           'Munich (München)',
@@ -106,7 +206,7 @@ export default [
         imageAlt: 'Marienplatz with the New City Hall (Neues Rathaus)',
       },
       {
-        id: 't1q3',
+        id: 'berlin',
         question: 'Berlin',
         answers: [
           'Berlin is a city-state and is its own capital',
@@ -120,7 +220,7 @@ export default [
           'Drone view of the Spree River, Museum Island, and Berlin Palace',
       },
       {
-        id: 't1q4',
+        id: 'potsdam',
         question: 'Brandenburg',
         answers: [
           'Potsdam',
@@ -134,7 +234,7 @@ export default [
           'view of old city hall with the statue of Fortuna auf dem Fortunaportal in the foreground',
       },
       {
-        id: 't1q5',
+        id: 'bremen',
         question: 'Bremen',
         answers: [
           'Bremen is a city-state and its own capital',
@@ -147,7 +247,7 @@ export default [
         imageAlt: 'Bremen market place (Marktplatz)',
       },
       {
-        id: 't1q6',
+        id: 'hamburg',
         question: 'Hamburg',
         answers: [
           'Hamburg is a city-state and its own capital',
@@ -160,7 +260,7 @@ export default [
         imageAlt: "St Pauli's pier and the head of the Elbe River",
       },
       {
-        id: 't1q7',
+        id: 'wiesbaden',
         question: 'Hesse (Hessen)',
         answers: [
           'Wiesbaden',
@@ -173,7 +273,7 @@ export default [
         imageAlt: 'Kurhaus Wiesbaden',
       },
       {
-        id: 't1q8',
+        id: 'hanover',
         question: 'Lower Saxony (Niedersachsen)',
         answers: [
           'Hanover (Hannover)',
@@ -187,7 +287,7 @@ export default [
           'View over city center including the old town hall and St Georgii et Jacobi church',
       },
       {
-        id: 't1q9',
+        id: 'schwerin',
         question: 'Mecklenburg-Vorpommern',
         answers: [
           'Schwerin',
@@ -200,7 +300,7 @@ export default [
         imageAlt: 'View of the orangerie and the Lake Schwerin',
       },
       {
-        id: 't1q10',
+        id: 'mainz',
         question: 'Rhineland-Palatinate (Rheinland-Pfalz)',
         answers: [
           'Mainz',
@@ -213,7 +313,7 @@ export default [
         imageAlt: 'View over Mainz and the Rhine',
       },
       {
-        id: 't1q11',
+        id: 'dusseldorf',
         question: 'North Rhine-Westphalia (Nordrhein-Westfalen)',
         answers: [
           'Düsseldorf',
@@ -226,7 +326,7 @@ export default [
         imageAlt: "Frank Owen Gehry's New Zollhof buildings in Media Harbour",
       },
       {
-        id: 't1q12',
+        id: 'saarbrucken',
         question: 'Saarland',
         answers: [
           'Saarbrücken',
@@ -239,7 +339,7 @@ export default [
         imageAlt: 'The Baroque Louis Church (Ludwigskirche)',
       },
       {
-        id: 't1q13',
+        id: 'dresden',
         question: 'Saxony (Sachsen)',
         answers: ['Dresden', 'Chemnitz', 'Zwickau', 'Görlitz', 'Raupenkot'],
         image: '/images/dresden.png',
@@ -247,7 +347,7 @@ export default [
           'Dresden Cathedral (Kathedrale Sanctissimae Trinitatis in the inner old city',
       },
       {
-        id: 't1q14',
+        id: 'magdeburg',
         question: 'Saxony-Anhalt (Sachsen-Anhalt)',
         answers: [
           'Magdeburg',
@@ -261,7 +361,7 @@ export default [
           'View over the city with the City Park (Stadtpark) and the Wheel of Hope ferris wheel in the foreground',
       },
       {
-        id: 't1q15',
+        id: 'kiel',
         question: 'Schleswig-Holstein',
         answers: [
           'Kiel',
@@ -275,7 +375,7 @@ export default [
           'View of the opera house and city hall from the opposite end of Lake Little Kiel',
       },
       {
-        id: 't1q16',
+        id: 'erfurt',
         question: 'Thuringia (Thüringen)',
         answers: [
           'Erfurt',
@@ -293,8 +393,11 @@ export default [
   {
     id: '2',
     topic: 'German food and drink',
-    resultsImg: '/images/sauerbraten-2512443_640.jpg',
-    resultsImgAlt: 'Plate of sauerbraten and spaetzle',
+    resultsImg: {
+      src: '/images/sauerbraten-2512443_640.jpg',
+      alt: 'Plate of sauerbraten and spaetzle',
+    },
+
     questions: [
       {
         id: 't2q1',
@@ -447,8 +550,10 @@ export default [
   {
     id: '3',
     topic: 'German long and unique words',
-    resultsImg: '/images/Long-German-word-Fussbodenschleifmaschinenverleih.jpg',
-    resultsImgAlt: 'view of Fussbodenschleifmaschinenverleih store front and sign',
+    resultsImg: {
+      src: '/images/Long-German-word-Fussbodenschleifmaschinenverleih.jpg',
+      alt: 'view of Fussbodenschleifmaschinenverleih store front and sign',
+    },
     questions: [
       {
         id: 't3q1',
@@ -456,14 +561,15 @@ export default [
         answers: [
           'Reassuring your hairdresser',
           'Singing off key at church',
-          'When your hair\'s color blends perfectly',
+          "When your hair's color blends perfectly",
           'A rabbit warren',
           'The pleasant smell from shampoo',
         ],
       },
       {
         id: 't3q2',
-        question: 'If you have "Schmutzigeshaarbedauern", what should you have done?',
+        question:
+          'If you have "Schmutzigeshaarbedauern", what should you have done?',
         answers: [
           'Not gone that extra day without washing your hair',
           'Had less dessert',
@@ -485,11 +591,12 @@ export default [
       },
       {
         id: 't3q4',
-        question: 'What led to "Rindfleischetikettierungsüberwachungsaufgabenübertragungsgesetz"?',
+        question:
+          'What led to "Rindfleischetikettierungsüberwachungsaufgabenübertragungsgesetz"?',
         answers: [
           'The 1990s mad cow disease crisis',
           'The spike in teen crime after the Berlin Wall fell',
-          'King Ludwig\'s law to criminalize dancing on Sundays',
+          "King Ludwig's law to criminalize dancing on Sundays",
           'The 30 Years War',
           'Crystal meth in the monasteries',
         ],
@@ -498,8 +605,8 @@ export default [
         id: 't3q5',
         question: 'Why is a "Schwiegermutterkurve" dangerous?',
         answers: [
-          'It\'s a dangerous hair-pin or blind curve on a road',
-          'It\'s socially unacceptable to stare at your stepmother\'s curve',
+          "It's a dangerous hair-pin or blind curve on a road",
+          "It's socially unacceptable to stare at your stepmother's curve",
           'It causes blockages in the arteries',
           'It causes spontaneous combustion in rodents',
           'It is a poison that smells like chocolate',
@@ -544,7 +651,7 @@ export default [
         answers: [
           'Emotional eating (worry bacon)',
           'A cummberbund (crumbs + band)',
-          'Markings on a window from a dog\'s nose (moist nose)',
+          "Markings on a window from a dog's nose (moist nose)",
           'A savory pastry from Aachen',
           'A muskrat',
         ],
@@ -562,12 +669,13 @@ export default [
       },
       {
         id: 't3q11',
-        question: 'What do you want to do when you see someone with a "Backpfeifengesicht"?',
+        question:
+          'What do you want to do when you see someone with a "Backpfeifengesicht"?',
         answers: [
           'Slap them (slappable face)',
           'Kiss them (smoochable lips)',
           'Cry for jealousy (high end jewels)',
-          'Help them cross the street (can\'t see from puffy eyelids)',
+          "Help them cross the street (can't see from puffy eyelids)",
           'Carry it for them (back-breaking luggage)',
         ],
       },
@@ -575,7 +683,7 @@ export default [
         id: 't3q12',
         question: 'What is happening to someone with "Geheimratsecken"?',
         answers: [
-          'They\'re losing their hair (privy councillor\'s corners)',
+          "They're losing their hair (privy councillor's corners)",
           'They have poison ivy (secret scratching)',
           'They are being reassigned to another job due to complaints (gossip sacks)',
           'They are getting a divorce (home ratsack)',
@@ -587,12 +695,16 @@ export default [
   {
     id: '4',
     topic: 'German arts and literature',
-    resultsImg: '/images/beethoven-8803301_1280.jpg',
-    resultsImgAlt: 'Beethoven sitting at a desk composing at candlelight',
+    resultsImg: {
+      src: '/images/beethoven-8803301_1280.jpg',
+      alt: 'Beethoven sitting at a desk composing at candlelight',
+    },
+
     questions: [
       {
         id: 't4q1',
-        question: 'What was the German literature movement and music that occurred between the late 1760s and early 1780s called?',
+        question:
+          'What was the German literature movement and music that occurred between the late 1760s and early 1780s called?',
         answers: [
           'Sturm und Drang',
           'Schiller und Miller',
@@ -610,6 +722,75 @@ export default [
           'Frankfurt ob der Aber',
           'Frankfurt beim Deshalb',
           'Frankfurt under Ober',
+        ],
+      },
+      {
+        id: 't4q3',
+        question: 'Who is associated with "New German Cinema"?',
+        answers: [
+          'Rainer Werner Fassbinder',
+          'Michael Fassbender',
+          'Moritz Bleibtreu',
+          'Vincent Radetzki',
+          'Uwe Ochsenknecht',
+        ],
+      },
+      {
+        id: 't4q4',
+        question: 'What art movement was Philipp Otto Runge associated with?',
+        answers: [
+          'German Romanticism',
+          'Weimar Classicism',
+          'Fauvism',
+          'Expressionism',
+          'Chismism',
+        ],
+      },
+      {
+        id: 't4q5',
+        question: 'Who was not an East German author?',
+        answers: [
+          'Helmut Kohl',
+          'Bertolt Brecht',
+          'Christa Wolf',
+          'Lily Becher',
+          'Bruno Apitz',
+        ],
+      },
+      {
+        id: 't4q6',
+        question: 'Who is the artist and what is the title of this work?',
+        image: '/images/art-culture-quiz-1.png',
+        imageAlt: 'painting of a tower of hats',
+        answers: [
+          'Max Ernst - The Hat Makes the Man',
+          'Gottfried Keller - Clothes Make the Man',
+          'Franke Potente - Romulus, My Father',
+          'Hans Holbein the Elder - The Gathering of Men',
+          'Franz Marc - The Tower of Blue Hats',
+        ],
+      },
+      {
+        id: 't4q7',
+        question: 'What is a "Hörspiel"?',
+        answers: [
+          'A radio play involving a cast and sound effects',
+          'An audiobook - a book read aloud',
+          "A tragic-comic play often about people's interaction with nature",
+          'An acting technique similar to "method acting"',
+          'A type of dressage made popular in Lower Saxony (Niedersachsen)',
+        ],
+      },
+      {
+        id: 't4q8',
+        question:
+          'Who was knowns as the Literaturpapst ("Pope of Literature") of Germany?',
+        answers: [
+          'Marcel Reich-Ranicki',
+          'Norbert Vosburg',
+          'Olaf August Minneberg',
+          'Gregor Thomas Katzenberg',
+          'Randof Armando Trümmerfilm',
         ],
       },
     ],

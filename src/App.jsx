@@ -1,8 +1,9 @@
 import { useState } from 'react';
 
-import Header from './components/Header.jsx';
+import Header from './ui/Header.jsx';
 import TimeSelect from './components/TimeSelect.jsx';
-import Button from './components/Button.jsx';
+import Button from './ui/Button.jsx';
+import Card from './ui/Card.jsx';
 import QuizPage from './components/QuizPage.jsx';
 
 import TOPICS from './topics.js';
@@ -15,7 +16,8 @@ function App() {
   const [gameIsOver, setGameIsOver] = useState(false);
 
   function handleStartQuiz(topicId) {
-    setTopic(TOPICS[topicId - 1]);
+    const selectedTopic = TOPICS.find((t, ) => t.id === topicId);
+    setTopic(selectedTopic);
     setQuizStarted((prev) => !prev);
   }
 
@@ -52,15 +54,14 @@ function App() {
             </section>
             <section className='btn-cards-container'>
               {TOPICS.map((t) => (
-                <div className='start-quiz-card'>
-                  <p>Test your knowledge on {t.topic}.</p>
+                <Card className='start-quiz-card' key={t.id}>
+                  <p>Test your knowledge on {t.topic}. ({t.questions.length}&nbsp;questions)</p>
                   <Button
-                    key={t.id}
                     handleClick={() => handleStartQuiz(t.id)}
                     classes='start-btn '
                   >Start quiz
                   </Button>
-                </div>
+                </Card>
               ))}
             </section>
           </>

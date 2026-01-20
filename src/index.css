@@ -17,6 +17,7 @@ i decide to have a black-flag and black and off-white and white
   --very-light-grey: #d6d4d4;
   --light-grey: #999999;
   --grey: #494949;
+  --grey-shadow:rgb(73, 73, 73, 0.8);
   --red: #dd0000;
   --red-accent: #540404;
   --gold: #ffcc00;
@@ -25,8 +26,6 @@ i decide to have a black-flag and black and off-white and white
   --green-light: #00ffcc;
   --white: #fff;
   --off-white: #e2e2e2;
-
-  --flag-stripe-height: 200px;
   --serif: 'Domine', serif;
   --sans-serif: 'Manrope', sans-serif;
   --border-radius: 4px;
@@ -45,7 +44,6 @@ html {
 
 body {
   min-height: 100vh;
-  background: var(--gold);
 }
 
 main {
@@ -86,9 +84,9 @@ ul {
   background: var(--red);
   color: var(--white);
   display: flex;
-  height: var(--flag-stripe-height);
   align-items: center;
   text-align: center;
+  min-height: 200px;
 }
 
 .btn-cards-container {
@@ -96,14 +94,12 @@ ul {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
-
-  min-height: var(--flag-stripe-height);
+  min-height: 200px;
   padding: 1rem 0;
 }
 
 .start-quiz-card {
   background: var(--white);
-  border-radius: var(--border-radius);
   margin: 0 auto;
   padding: 1rem;
   width: 18rem;
@@ -117,7 +113,7 @@ ul {
 /* QUIZBOARD no need for module*/
 .quiz-board {
   background-color: #fff;
-  box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.6);
+  box-shadow: 1px 1px 4px 1px  var(--gold-accentgrey-shadow);
   border-radius: var(--border-radius);
   text-align: center;
   max-width: 50rem;
@@ -182,7 +178,7 @@ ul {
 }
 .answer-btn {
   background-size: 200% auto;
-  box-shadow: 0 0 5px #272727;
+  box-shadow: 0 0 5px var(--grey-shadow);
   color: white;
   font-size: 1.25rem;
   transition: 0.5s;
@@ -202,7 +198,7 @@ ul {
 .answer-btn.correct {
   color: var(--gold);
   border-color: var(--gold);
-  animation: correct-bobble 0.5s 2;
+  animation: correct-jump 0.5s 2;
 }
 .answer-btn.incorrect {
   color: var(--red);
@@ -227,34 +223,34 @@ ul {
     transform: translateX(0);
   }
   25% {
-    transform: translateX(8px);
+    transform: translateX(4px);
   }
   50% {
-    transform: translateX(-8px);
+    transform: translateX(-4px);
   }
   75% {
-    transform: translateX(8px);
+    transform: translateX(4px);
   }
   100% {
     transform: translateX(0);
   }
 }
 
-@keyframes correct-bobble {
-  0% {
-    transform: translate(0, 0) rotate(0deg);
+@keyframes correct-jump {
+    0% {
+    transform: translateY(0);
   }
   25% {
-    transform: translate(5px, 5px) rotate(5deg);
+    transform: translateY(4px);
   }
   50% {
-    transform: translate(0, 0) rotate(0eg);
+    transform: translateY(-4px);
   }
   75% {
-    transform: translate(-5px, 5px) rotate(-5deg);
+    transform: translateY(4px);
   }
   100% {
-    transform: translate(0, 0) rotate(0deg);
+    transform: translateY(0);
   }
 }
 
@@ -269,6 +265,7 @@ ul {
 
 .start-quiz-card {
   width: 20rem;
+
 }
 
 .start-quiz-card p {

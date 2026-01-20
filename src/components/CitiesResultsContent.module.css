@@ -1,13 +1,85 @@
 .citiesQuizContainer {
-  border: 1px solid chartreuse;
+ 
+}
+.citiesQuizResultsDesktop {
+  display: none;
 }
 
-.mapContainer {
-  width: 300px;
-  aspect-ratio: 250 / 349;
+.imageContainerMobile {
+  aspect-ratio: 917 / 1280;
+  margin: 0 auto;
   overflow: hidden;
+  width: 300px;
 }
 
-.germanyMap {
+.imageContainerMobile img {
   width: 100%;
+}
+
+.citiesQuizResultsMobile {
+  border: 1px solid orangered;
+}
+
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.resultsCard {
+  background: var(--white);
+  margin: 0.5rem 0.2rem;
+}
+
+.wrong {
+  color: var(--red);
+}
+.wrong span {
+  margin-right: 0.5rem;
+}
+
+@media screen and (min-width: 425px) {
+  .imageContainerMobile {
+    width: 380px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .citiesQuizResultsMobile {
+    display: flex;
+  }
+  .imageContainerMobile {
+    margin: unset;
+    margin-right: 1rem;
+  }
+
+  .cardContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 768px) {
+}
+/* DESKTOP HOVER  */
+@media screen and (min-width: 900px) {
+  .citiesQuizResultsMobile {
+    display: none;
+  }
+  .citiesQuizResultsDesktop {
+    display: flex;
+  }
+
+  .imageContainerDesktop {
+    position: relative;
+    aspect-ratio: 917 / 1280;
+    margin: 0 auto;
+    overflow: hidden;
+    width: 580px;
+  }
+  .imageContainerDesktop  img {
+    width: 100%;
+  }
+  .capitalDot {
+    /* position: absolute; */
+  }
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import ProgressBier from './ProgressBier';
+import ProgressBier from '../ui/ProgressBier';
 export default function Timer({ duration, onTimesUp, answerState }) {
   const [isMobile] = useState(window.innerWidth < 768); 
 

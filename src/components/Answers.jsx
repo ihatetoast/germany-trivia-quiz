@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-import Button from './Button.jsx';
+import Button from '../ui/Button.jsx';
 
 export default function Answers({
   answerOptions, 
