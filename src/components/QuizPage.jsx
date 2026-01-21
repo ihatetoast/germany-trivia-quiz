@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 
 import QuizQuestion from './QuizQuestion.jsx';
 
@@ -30,11 +30,6 @@ export default function QuizPage({ timerVal, questionData, restartQuiz }) {
     handleSelectUserAnswer(null);
   }, [handleSelectUserAnswer]);
 
-  useEffect(() => {
-    if (usersAnswers.length === questionData.length) {
-      restartQuiz();
-    }
-  }, [questionData, usersAnswers, restartQuiz]);
 
   const quizLength = usersAnswers.length;
 
@@ -94,6 +89,10 @@ export default function QuizPage({ timerVal, questionData, restartQuiz }) {
     <GenericResultsContent
       usersAnswers={usersAnswers}
       questions={questionData.questions}
+      imageData={{
+        image: questionData.resultsImg,
+        imageAlt: questionData.resultsImgAlt,
+      }}
     />
   );
 
@@ -102,6 +101,7 @@ export default function QuizPage({ timerVal, questionData, restartQuiz }) {
       <Results
         title={`${questionData.topicTitle} results:`}
         resultData={resultData}
+        restartQuiz={restartQuiz}
       >
         {questionData.topicTitle === 'German capital cities'
           ? capCitiesResults
@@ -120,6 +120,7 @@ export default function QuizPage({ timerVal, questionData, restartQuiz }) {
         onNotAnswered={handleNotAnswered}
         handleAnswerClick={handleSelectUserAnswer}
       />
+      {}
     </div>
   );
 }

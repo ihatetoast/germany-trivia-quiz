@@ -376,6 +376,39 @@ export default [
           'The German name for Cinderella',
         ],
       },
+      {
+        id: 't2q14',
+        question: 'What is a "Mettigel"?',
+        answers: [
+          'Raw meat shaped into a hedgehog',
+          'A sandwich made with tomatoes and peanut butter',
+          'Lemon and thyme soup',
+          'An apple carved to look like a grandma, used as a garnish',
+          'A special meal served to a child on their 16th birthday',
+        ],
+      },
+      {
+        id: 't2q15',
+        question: 'A chilled no-bake chocolate dessert with layers of cookies, coconut oil and chocolat is called ...?',
+        answers: [
+          'Kalter Hund (cold dog)',
+          'Freche Katze (sassy cat)',
+          'Geiler Hengst (hot stallion)',
+          'Gemeines Mädel (mean lass)',
+          'Hübscher Schleimfisch (pretty hagfish)',
+        ],
+      },
+      {
+        id: 't2q16',
+        question: '"Himmel un Ääd" translates to "heaven and earth", why?',
+        answers: [
+          'It\'s applesauce (apples are in the sky) and mashed potatoes (from the ground)',
+          'Medieval monks served this meal on Fridays to village sinners',
+          'The cream is whipped like clouds and put on chocolate pudding (like soil)',
+          'It\'s devil\'s food cake base with an angel food cake top',
+          'It\'s a scoop of vanilla, pistachio, and chocolate ice cream with whipped cream',
+        ],
+      },
     ],
   },
   {
@@ -527,10 +560,9 @@ export default [
     id: '4',
     topic: 'German arts and literature',
     resultsImg: {
-      src: '/images/beethoven-8803301_1280.jpg',
+      src: '/images/beethoven-8803301_1280.png',
       alt: 'Beethoven sitting at a desk composing at candlelight',
     },
-
     questions: [
       {
         id: 't4q1',
@@ -615,13 +647,37 @@ export default [
       {
         id: 't4q8',
         question:
-          'Who was knowns as the Literaturpapst ("Pope of Literature") of Germany?',
+          'Who was knowns as Germany\'s Literaturpapst ("Pope of Literature")?',
         answers: [
           'Marcel Reich-Ranicki',
           'Norbert Vosburg',
           'Olaf August Minneberg',
           'Gregor Thomas Katzenberg',
           'Randof Armando Trümmerfilm',
+        ],
+      },
+      {
+        id: 't4q9',
+        question:
+          'Who directed "Paris, Texas", "Wings of Desire" ("Der Himmel Über Berlin"), and "Don\'t Come Knocking"?',
+        answers: [
+          'Wim Wenders',
+          'Fritz Lang',
+          'Werner Herzog',
+          'Faith Akin',
+          'Wolfgang Petersen',
+        ],
+      },
+      {
+        id: 't4q10',
+        question:
+          'What is the name of the industrial metal powerhouse fronted by Till Lindemann, ',
+        answers: [
+          'Rammstein',
+          'Scorpions',
+          'Die Toten Hosen',
+          'Metzgerhunde',
+          'Kraftwerk',
         ],
       },
     ],

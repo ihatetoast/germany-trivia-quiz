@@ -71,6 +71,16 @@
   background: var(--gold);
 }
 
+.restartBtn {
+  margin: 0.5rem auto 0;
+}
+@media screen and (min-width: 425px) {
+  .stats {
+    width: 380px;
+    margin: 0 auto;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .score {
     margin-left: 1.5rem;
@@ -82,12 +92,11 @@
     height: 42px;
   }
 
+  .stats {
+    width: 550px;
+  }
+
   .barchart {
     width: 500px;
   }
-}
-
-
-@media screen and (min-width: 900px) {
-
 }

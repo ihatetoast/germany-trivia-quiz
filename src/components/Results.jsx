@@ -1,7 +1,8 @@
 import { Laugh, Frown, Meh } from 'lucide-react';
+import Button from '../ui/Button';
 import classes from './Results.module.css';
 
-export default function Results({ title, resultData, children }) {
+export default function Results({ title, resultData, restartQuiz, children }) {
   return (
     <div id='results' className={classes.results}>
       <section id='stats' className={classes.statsContainer}>
@@ -41,6 +42,7 @@ export default function Results({ title, resultData, children }) {
             })}
           </div>
         </div>
+        <Button className={classes.restartBtn} handleClick={restartQuiz}>Restart</Button>
       </section>
       <section className={classes.resultAnswers} id='result-answers'>{children}</section>
     </div>

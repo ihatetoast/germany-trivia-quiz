@@ -80,7 +80,7 @@ export default function QuizQuestion({
       <img src={question.image} alt={question.imageAlt} />
     </div>
   );
-  console.log('answer state is ', answerState);
+
   return (
     <div className={classes.quizQuestionContainer}>
       <div className={classes.quizQuestionIntro}>

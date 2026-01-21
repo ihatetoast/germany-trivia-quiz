@@ -52,7 +52,7 @@ main {
   max-width: 100%;
   overflow-wrap: break-word;
   background: var(--gold);
-
+  min-height: 100vh;
 }
 
 /* SERIF GOOGLE FONT DOMINE  */
@@ -107,7 +107,6 @@ ul {
   margin: 0 auto;
   padding: 1rem;
 }
-
 
 .start-quiz-card {
   display: flex;
@@ -291,7 +290,6 @@ ul {
 
 @media screen and (min-width: 1440px) {
   .btn-cards-container {
-    border: 1px solid blue;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 }

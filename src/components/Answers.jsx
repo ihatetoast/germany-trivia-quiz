@@ -49,19 +49,23 @@ export default function Answers({
               </li>
             );
           })}
-          {addSkip && (
-            <li>
+         
+        </ul>
+         
+      </Card>    <div className={classes.skipPlaceholder}>
+{addSkip && (
+ 
               <Button
-                className={classes.skipBtnItem}
+                className={classes.skipBtn}
                 handleClick={() => onSelect(null)}
                 disabled={answerState !== ''}
               >
                 SKIP
               </Button>
-            </li>
+   
           )}
-        </ul>
-      </Card>
+      </div>
+      
     </div>
   );
 }
