@@ -17,7 +17,7 @@ i decide to have a black-flag and black and off-white and white
   --very-light-grey: #d6d4d4;
   --light-grey: #999999;
   --grey: #494949;
-  --grey-shadow:rgb(73, 73, 73, 0.8);
+  --grey-shadow: rgb(73, 73, 73, 0.8);
   --red: #dd0000;
   --red-accent: #540404;
   --gold: #ffcc00;
@@ -48,8 +48,11 @@ body {
 
 main {
   padding: 0;
+  padding-bottom: 10rem;
   max-width: 100%;
   overflow-wrap: break-word;
+  background: var(--gold);
+
 }
 
 /* SERIF GOOGLE FONT DOMINE  */
@@ -92,36 +95,36 @@ ul {
 .btn-cards-container {
   background: var(--gold);
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(250px, 400px);
   gap: 1rem;
   min-height: 200px;
-  padding: 1rem 0;
+  padding: 1rem;
+  justify-content: center;
 }
 
-.start-quiz-card {
+.btn-cards-container .start-quiz-card {
   background: var(--white);
   margin: 0 auto;
   padding: 1rem;
-  width: 18rem;
 }
 
+
+.start-quiz-card {
+  display: flex;
+  flex-direction: column;
+}
 .start-quiz-card p {
   margin-bottom: 1rem;
   text-align: center;
+  flex: 1;
 }
 
 /* QUIZBOARD no need for module*/
 .quiz-board {
   background-color: #fff;
-  box-shadow: 1px 1px 4px 1px  var(--gold-accentgrey-shadow);
+  box-shadow: 1px 1px 4px 1px var(--gold-accentgrey-shadow);
   border-radius: var(--border-radius);
   text-align: center;
-  max-width: 50rem;
-}
-
-.answer-options-container {
-  width: 100%;
-  padding: 0.25rem;
 }
 
 #answer-options {
@@ -198,12 +201,12 @@ ul {
 .answer-btn.correct {
   color: var(--gold);
   border-color: var(--gold);
-  animation: correct-jump 0.5s 2;
+  animation: correct-jump 0.5s;
 }
 .answer-btn.incorrect {
   color: var(--red);
   border-color: var(--red-accent);
-  animation: incorrect-shake 0.5s 2;
+  animation: incorrect-shake 0.5s;
 }
 
 /* CUSTOM SELECT NOT IN MODULE  */
@@ -237,7 +240,7 @@ ul {
 }
 
 @keyframes correct-jump {
-    0% {
+  0% {
     transform: translateY(0);
   }
   25% {
@@ -255,24 +258,16 @@ ul {
 }
 
 @media screen and (min-width: 768px) {
-
-.btn-cards-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-
+  .btn-cards-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(350px, 1fr));
+    grid-auto-rows: 1fr;
     padding: 1rem 2rem;
-}
+  }
 
-.start-quiz-card {
-  width: 20rem;
-
-}
-
-.start-quiz-card p {
-  font-size: 1.25rem;
-}
-
-
+  .start-quiz-card p {
+    font-size: 1.25rem;
+  }
 
   .start-btn {
     max-width: 20rem;
@@ -285,5 +280,18 @@ ul {
 
   .answer .answer-btn {
     font-size: 1.35rem;
+  }
+}
+
+@media screen and (min-width: 1030px) {
+  .btn-cards-container {
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .btn-cards-container {
+    border: 1px solid blue;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 }

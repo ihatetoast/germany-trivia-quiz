@@ -67,7 +67,7 @@ export default function QuizPage({ timerVal, questionData, restartQuiz }) {
       percentage: wPct,
       color: 'var(--red)',
     },
-     {
+    {
       name: 'skip',
       count: sLength,
       percentage: sPct,
@@ -80,7 +80,7 @@ export default function QuizPage({ timerVal, questionData, restartQuiz }) {
   const capCitiesResults = (
     <CitiesResultsContent
       usersAnswers={usersAnswers}
-      questionData={questionData}
+      questions={questionData.questions}
       rightCount={rLength}
       imageData={{
         image: questionData.resultsImg,
@@ -103,8 +103,7 @@ export default function QuizPage({ timerVal, questionData, restartQuiz }) {
         title={`${questionData.topicTitle} results:`}
         resultData={resultData}
       >
-        {questionData.topicTitle === 'German capital cities' ||
-        questionData.topicTitle === 'TESTING CITIES'
+        {questionData.topicTitle === 'German capital cities'
           ? capCitiesResults
           : genericResults}
       </Results>

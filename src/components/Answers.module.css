@@ -1,0 +1,21 @@
+.answerOptionsContainer {
+  margin: 0 auto;
+  max-width: 320px;
+  width: 95%;
+}
+
+.answerCard {
+  background: var(--white);
+}
+
+.skipBtnItem {
+  background: var(--gold);
+}
+
+@media screen and (min-width: 768px) {
+  .answerOptionsContainer {
+  max-width: 500px;
+  width: 50%;
+}
+
+}

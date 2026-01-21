@@ -15,6 +15,7 @@ const TimeSelect = ({ onSelect }) => {
   const dropdownRef = useRef(false);
 
   const options = [
+     { value: '500', icon: '📝', label: 'TEST' },
     { value: '0', icon: <Icon iconNode={unicornHead}  className={classes.icon} color="#00A3A3" />, label: 'Untimed and chill' },
     { value: '20', icon: <Icon iconNode={lemon} className={classes.icon} color="#B38F00"/>, label: 'Easy peasy lemon squeezy' },
     { value: '10', icon: <Icon iconNode={sausage} className={classes.icon} color="#894f02" />, label: 'Not too fast. Not too slow.' },
@@ -43,7 +44,7 @@ const TimeSelect = ({ onSelect }) => {
       <p>Go easy without a timer or challenge yourself by choosing a time limit (default is untimed).</p>
       <label id='time-select-label'>Choose a difficulty level</label>
       <Button
-        classes={classes.customSelectButton}
+        className={classes.customSelectButton}
         aria-labelledby='time-select-label'
         handleClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}

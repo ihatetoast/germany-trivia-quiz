@@ -41,7 +41,7 @@ function App() {
     <>
       <Header topic={topic.topic ?? 'German cultural trivia'}>
         {gameIsOver && (
-          <Button handleClick={handleRestartQuiz} classes='start-btn '>
+          <Button handleClick={handleRestartQuiz} className='start-btn '>
             Try again?
           </Button>
         )}
@@ -58,8 +58,8 @@ function App() {
                   <p>Test your knowledge on {t.topic}. ({t.questions.length}&nbsp;questions)</p>
                   <Button
                     handleClick={() => handleStartQuiz(t.id)}
-                    classes='start-btn '
-                  >Start quiz
+                    className='start-btn '
+                  >START QUIZ
                   </Button>
                 </Card>
               ))}

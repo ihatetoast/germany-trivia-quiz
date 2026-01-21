@@ -4,7 +4,6 @@ import Timer from './Timer.jsx';
 import Answers from './Answers.jsx';
 import classes from './QuizQuestion.module.css';
 
-
 export default function QuizQuestion({
   timerVal,
   question,
@@ -16,13 +15,13 @@ export default function QuizQuestion({
     isCorrect: null,
   });
 
-const TIME_TO_NEXT_QUESTION = 2000;
-const TIME_TO_REVEAL_ANSWER = 1000;
+  const [answerState, setAnswerState] = useState('');
 
+  const TIME_TO_NEXT_QUESTION = 2000;
+  const TIME_TO_REVEAL_ANSWER = 1000;
 
   // initial val from user's choice or default
   let timerDuration = timerVal;
-  let answerState = '';
 
   // if user has clicked an answer, shorten the timer to move along
   if (userAnswer.selectedAnswer) {
@@ -35,53 +34,39 @@ const TIME_TO_REVEAL_ANSWER = 1000;
   }
 
   function handleSelectUserAnswer(answer) {
-if(answer === null) {
-      setUserAnswer({
-      selectedAnswer: null, 
-      isCorrect: null, 
-    });
-    handleAnswerClick(answer);
-}
+    setAnswerState('answered');
 
-else {setTimeout(() => {
+    if (answer === null) {
+      // skipped or waiting too long
       setUserAnswer({
-      selectedAnswer: answer, // immediate
-      isCorrect: null, // settimeout fun
-    });
-      // first determine if right or wrong but ...
+        selectedAnswer: null,
+        isCorrect: null,
+      });
+      handleAnswerClick(answer);
+    } else {
       setUserAnswer({
         selectedAnswer: answer,
-        isCorrect: question.answers[0] === answer,
+        isCorrect: null,
       });
-      // pause pause pause the 1000 for a delay before showing if it's right or wrong
+
       setTimeout(() => {
-        handleAnswerClick(answer);
-      }, TIME_TO_NEXT_QUESTION);
-      // wait another second (2000-1000) to trigger the fn to add ans to ans array and move on. 
-    }, TIME_TO_REVEAL_ANSWER);}
-
-  }
-
-  // function handleSkipQuestion(){
-  //   setUserAnswer({
-  //     selectedAnswer: null, 
-  //     isCorrect: null, 
-  //   });
-  //     setTimeout(() => {
-  //       handleAnswerClick(null);
-  //     }, TIME_TO_NEXT_QUESTION);
-  // }
-
-  if (userAnswer.selectedAnswer && userAnswer.isCorrect !== null) {
-    answerState = userAnswer.isCorrect ? 'correct' : 'incorrect';
-  } else if (userAnswer.selectedAnswer) {
-    answerState = 'answered'; // FIX THIS STYLING
+        const isCorrect = question.answers[0] === answer;
+        setUserAnswer({
+          selectedAnswer: answer,
+          isCorrect: isCorrect,
+        });
+        setAnswerState(isCorrect ? 'correct' : 'incorrect')
+        setTimeout(() => {
+          handleAnswerClick(answer);
+        }, TIME_TO_NEXT_QUESTION);
+      }, TIME_TO_REVEAL_ANSWER);
+    }
   }
 
   const timed = timerVal !== 0;
 
   // use a key to yeet and render new
-  // and  fire onNotanswered IFF there's no answer. 
+  // and  fire onNotanswered IFF there's no answer.
   const quizTimer = (
     <Timer
       key={timerDuration}
@@ -95,6 +80,7 @@ else {setTimeout(() => {
       <img src={question.image} alt={question.imageAlt} />
     </div>
   );
+  console.log('answer state is ', answerState);
   return (
     <div className={classes.quizQuestionContainer}>
       <div className={classes.quizQuestionIntro}>

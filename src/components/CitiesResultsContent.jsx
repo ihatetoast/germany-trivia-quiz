@@ -1,5 +1,6 @@
-import {useState} from 'react'
+import { useState } from 'react';
 import Card from '../ui/Card';
+import Button from '../ui/Button';
 
 import classes from './CitiesResultsContent.module.css';
 
@@ -9,32 +10,43 @@ const CitiesResultsContent = ({
   rightCount,
   imageData,
 }) => {
-  const [expanded, setExpanded] = useState(false);
+  const [activeState, setActiveState] = useState(null);
   const perfectScore = rightCount === questions.length;
   const wrongAnswers = usersAnswers.filter(
     (ans, idx) => ans !== questions[idx].answers[0]
   );
 
-  console.log(wrongAnswers);
+  // positions for the map from pixabay. if you change the map, you have to change this.
+  // think really hard about that, woman.
   const capPos = {
-    stuttgart: { top: '32.4%', left: '80.9%' },
-    munich: { top: '87%', left: '56.5%' },
-    // berlin: { top: '88.2%', left: '60%' },
-    // potsdam: { top: '88.2%', left: '60%' },
-    // bremen: { top: '88.2%', left: '60%' },
-    // hamburg: { top: '88.2%', left: '60%' },
-    // wiesbaden: { top: '88.2%', left: '60%' },
-    // hanover: { top: '88.2%', left: '60%' },
-    // schwerin: { top: '88.2%', left: '60%' },
-    // mainz: { top: '88.2%', left: '60%' },
-    // dusseldorf: { top: '88.2%', left: '60%' },
-    // saarbrucken: { top: '88.2%', left: '60%' },
-    // dresden: { top: '88.2%', left: '60%' },
-    // magdeburg: { top: '88.2%', left: '60%' },
-    // kiel: { top: '88.2%', left: '60%' },
-    // erfurt: { top: '88.2%', left: '60%' },
+    stuttgart: { top: '79.4%', left: '32%' },
+    munich: { top: '87.5%', left: '60%' },
+    berlin: { top: '32%', left: '81%' },
+    potsdam: { top: '33%', left: '76%' },
+    bremen: { top: '26%', left: '32%' },
+    hamburg: { top: '20%', left: '44%' },
+    wiesbaden: { top: '61.5%', left: '22.5%' },
+    hanover: { top: '34%', left: '40%' },
+    schwerin: { top: '18.5%', left: '58%' },
+    mainz: { top: '64%', left: '22%' },
+    dusseldorf: { top: '47%', left: '7%' },
+    saarbrucken: { top: '72%', left: '7%' },
+    dresden: { top: '51%', left: '85%' },
+    magdeburg: { top: '36.5%', left: '61%' },
+    kiel: { top: '9.5%', left: '45%' },
+    erfurt: { top: '52%', left: '53%' },
   };
-  // eturn Object.keys(object).find(key => object[key] === value);
+
+  // combine info from props to the loc for new arr
+  // use this to map over for buttons
+  const stateResults = questions.map((ques, idx) => ({
+    stateId: ques.id, // for this quiz, id is cap city 'munich' etc
+    stateName: ques.question, // 'Munich'
+    rightAnswer: ques.answers[0],
+    userAnswer: usersAnswers[idx],
+    isCorrect: usersAnswers[idx] === ques.answers[0],
+    position: capPos[ques.id], // perc left and down from map.
+  }));
 
   return (
     <div className={classes.citiesQuizContainer}>
@@ -61,17 +73,54 @@ const CitiesResultsContent = ({
         </div>
       </div>
       <div className={classes.citiesQuizResultsDesktop}>
-        <div className={classes.imageContainerDesktop}>
-          
-          <img src={imageData.image.src} alt={imageData.image.alt} />
+        <div className={classes.mapAnswerContainer}>
+          <div className={classes.imageContainerDesktop}>
+            <img src={imageData.image.src} alt={imageData.image.alt} />
+          </div>
+          <div className={classes.capitalBoxContainer}>
+            {activeState && (
+              <div
+                style={{
+                  top: activeState.position.top,
+                  left: activeState.position.left,
+                }}
+                className={classes.capitalBox}
+              >
+                <p>
+                  <span>{activeState.isCorrect ? '✅' : '❌'}</span>{' '}
+                  {activeState.stateName}
+                </p>
+                <p>{activeState.rightAnswer}</p>
+                {!activeState.isCorrect && (
+                  <p>{activeState.userAnswer || 'skipped'}</p>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
+
+        <div className={classes.statesList}>
+          <h2>Results</h2>
+          <p>Click on a state below to reveal it and its capital in the map.</p>
+          <ul>
+            {stateResults.map((state) => (
+              <li key={state.stateId}>
+                <Button
+                  handleClick={() => setActiveState(state)}
+                  className={
+                    state.isCorrect ? classes.correctBtn : classes.incorrectBtn
+                  }
+                >
+                  {state.isCorrect ? '✅' : '❌'}
+                  {state.stateName}
+                </Button>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>
   );
 };
-// question.id needs to match the capPos
-// {questions.map((city, idx) => {
-
-            // return <div key={city.question} className={classes.capitalDot} >{city.question}<div>{usersAnswers[idx]}</div><div>{city.answers[0]}</div></div>})}
 
 export default CitiesResultsContent;

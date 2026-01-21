@@ -1,5 +1,4 @@
 .citiesQuizContainer {
- 
 }
 .citiesQuizResultsDesktop {
   display: none;
@@ -16,18 +15,18 @@
   width: 100%;
 }
 
-.citiesQuizResultsMobile {
-  border: 1px solid orangered;
-}
-
 .cardContainer {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: minmax(250px, 315px);
+  justify-content: center;
 }
 
 .resultsCard {
   background: var(--white);
   margin: 0.5rem 0.2rem;
+}
+.resultsCard h3 {
+  font-size: 1rem;
 }
 
 .wrong {
@@ -67,19 +66,53 @@
   }
   .citiesQuizResultsDesktop {
     display: flex;
+    padding: 0.5rem 2rem;
+  }
+
+  .mapAnswerContainer {
+    position: relative;
+     width: 580px;
+  }
+  .capitalBoxContainer,
+  .imageContainerDesktop {
+    position: absolute;
+    aspect-ratio: 917 / 1280;
+    margin: 0 1rem 0 0;
+    width: 580px;
   }
 
   .imageContainerDesktop {
-    position: relative;
-    aspect-ratio: 917 / 1280;
-    margin: 0 auto;
     overflow: hidden;
-    width: 580px;
   }
-  .imageContainerDesktop  img {
+
+  .capitalBoxContainer {
+    z-index: 5; /* keep in case I move the divs*/
+  }
+
+  .imageContainerDesktop img {
     width: 100%;
   }
-  .capitalDot {
-    /* position: absolute; */
+  .capitalBox {
+    position: absolute;
+    border: 2px solid var(--black);
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: var(--border-radius);
+  }
+
+  .capitalBox p {
+    white-space: nowrap;
+  }
+
+  .statesList {
+    flex: 1;
+    padding: 1rem 2rem 1rem 5rem;
+  }
+
+  .correctBtn {
+    color: var(--black);
+  }
+
+  .incorrectBtn {
+    color: var(--red);
   }
 }
