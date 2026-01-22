@@ -4,9 +4,9 @@ export default [
     topic: 'German capital cities',
     type: 'cities',
     resultsImg: {
-      src: '/images/map-304071_1280.png',
+      src: 'images/map-304071_1280.png',
       alt: "Map of Germany showing the states' borders",
-      srcMob: '/images/germany-29222_1280.png',
+      srcMob: 'images/germany-29222_1280.png',
       altMob: "Map of Germany showing the states' borders",
     },
     questions: [
@@ -20,7 +20,7 @@ export default [
           'Heidelberg',
           'Badenschmaden',
         ],
-        image: '/images/stuttgart.png',
+        image: 'images/stuttgart.png',
         imageAlt: 'Wuerttemberg Mausoleum with a vineyard in the foreground',
       },
       {
@@ -33,7 +33,7 @@ export default [
           'Regensburg',
           'Oberammergau-Unterammergau',
         ],
-        image: '/images/munich.png',
+        image: 'images/munich.png',
         imageAlt: 'Marienplatz with the New City Hall (Neues Rathaus)',
       },
       {
@@ -46,7 +46,7 @@ export default [
           'Berlinnenstadt',
           'Bärland',
         ],
-        image: '/images/berlin.png',
+        image: 'images/berlin.png',
         imageAlt:
           'Drone view of the Spree River, Museum Island, and Berlin Palace',
       },
@@ -60,7 +60,7 @@ export default [
           'Petershagen-Eggersdorf',
           'Parisdorf',
         ],
-        image: '/images/potsdam.png',
+        image: 'images/potsdam.png',
         imageAlt:
           'view of old city hall with the statue of Fortuna auf dem Fortunaportal in the foreground',
       },
@@ -74,7 +74,7 @@ export default [
           'Schildkröte',
           'Bremen is not a German city, lost in a poker game against Liechtenstein',
         ],
-        image: '/images/bremen.png',
+        image: 'images/bremen.png',
         imageAlt: 'Bremen market place (Marktplatz)',
       },
       {
@@ -87,7 +87,7 @@ export default [
           'Wandsbek',
           'Rote Grützendorf',
         ],
-        image: '/images/hamburg.png',
+        image: 'images/hamburg.png',
         imageAlt: "St Pauli's pier and the head of the Elbe River",
       },
       {
@@ -100,7 +100,7 @@ export default [
           'Frankfurt',
           'Kaiserschmarren',
         ],
-        image: '/images/wiesbaden.png',
+        image: 'images/wiesbaden.png',
         imageAlt: 'Kurhaus Wiesbaden',
       },
       {
@@ -113,7 +113,7 @@ export default [
           'Lüneburg',
           'Goetheburg',
         ],
-        image: '/images/hannover.png',
+        image: 'images/hannover.png',
         imageAlt:
           'View over city center including the old town hall and St Georgii et Jacobi church',
       },
@@ -127,7 +127,7 @@ export default [
           'Wismar',
           'Vierpommes',
         ],
-        image: '/images/schwerin.png',
+        image: 'images/schwerin.png',
         imageAlt: 'View of the orangerie and the Lake Schwerin',
       },
       {
@@ -140,7 +140,7 @@ export default [
           'Koblenz',
           'Pfalzundseffer',
         ],
-        image: '/images/mainz.png',
+        image: 'images/mainz.png',
         imageAlt: 'View over Mainz and the Rhine',
       },
       {
@@ -153,7 +153,7 @@ export default [
           'Bielefeld',
           'Rheinischer-Sauerbraten',
         ],
-        image: '/images/duesseldorf.png',
+        image: 'images/duesseldorf.png',
         imageAlt: "Frank Owen Gehry's New Zollhof buildings in Media Harbour",
       },
       {
@@ -166,14 +166,14 @@ export default [
           'Völkingen',
           'Zehnschulen',
         ],
-        image: '/images/saarbrucken.png',
+        image: 'images/saarbrucken.png',
         imageAlt: 'The Baroque Louis Church (Ludwigskirche)',
       },
       {
         id: 'dresden',
         question: 'Saxony (Sachsen)',
         answers: ['Dresden', 'Chemnitz', 'Zwickau', 'Görlitz', 'Raupenkot'],
-        image: '/images/dresden.png',
+        image: 'images/dresden.png',
         imageAlt:
           'Dresden Cathedral (Kathedrale Sanctissimae Trinitatis in the inner old city',
       },
@@ -187,7 +187,7 @@ export default [
           'Wittenburg',
           'Bahn-Wahn',
         ],
-        image: '/images/magdeburg.png',
+        image: 'images/magdeburg.png',
         imageAlt:
           'View over the city with the City Park (Stadtpark) and the Wheel of Hope ferris wheel in the foreground',
       },
@@ -201,7 +201,7 @@ export default [
           'Neumünster',
           'Meerschweinchen-Holzbeinchen',
         ],
-        image: '/images/kiel.png',
+        image: 'images/kiel.png',
         imageAlt:
           'View of the opera house and city hall from the opposite end of Lake Little Kiel',
       },
@@ -215,7 +215,7 @@ export default [
           'Jena',
           'Kickelhahn-Holzbeinchen am Humbach',
         ],
-        image: '/images/erfuhrt.png',
+        image: 'images/erfuhrt.png',
         imageAlt:
           "Old Erfurt and the view from the tower of St. Giles' Church over the houses standing on the Krämerbrücke bridge",
       },
@@ -225,7 +225,7 @@ export default [
     id: '2',
     topic: 'German food and drink',
     resultsImg: {
-      src: '/images/sauerbraten-2512443_640.jpg',
+      src: 'images/sauerbraten-2512443_640.jpg',
       alt: 'Plate of sauerbraten and spaetzle',
     },
 
@@ -415,7 +415,7 @@ export default [
     id: '3',
     topic: 'German long and unique words',
     resultsImg: {
-      src: '/images/Long-German-word-Fussbodenschleifmaschinenverleih.jpg',
+      src: 'images/Long-German-word-Fussbodenschleifmaschinenverleih.jpg',
       alt: 'view of Fussbodenschleifmaschinenverleih store front and sign',
     },
     questions: [
@@ -560,7 +560,7 @@ export default [
     id: '4',
     topic: 'German arts and literature',
     resultsImg: {
-      src: '/images/beethoven-8803301_1280.png',
+      src: 'images/beethoven-8803301_1280.png',
       alt: 'Beethoven sitting at a desk composing at candlelight',
     },
     questions: [
@@ -623,7 +623,7 @@ export default [
       {
         id: 't4q6',
         question: 'Who is the artist and what is the title of this work?',
-        image: '/images/art-culture-quiz-1.png',
+        image: 'images/art-culture-quiz-1.png',
         imageAlt: 'painting of a tower of hats',
         answers: [
           'Max Ernst - The Hat Makes the Man',
