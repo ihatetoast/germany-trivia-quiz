@@ -1,7 +1,6 @@
 .bierPngContainer {
   position: relative;
-  width: 8rem;
-  margin-left: 5rem;
+  width: 10rem;
   aspect-ratio: 563 / 640;
 }
 
@@ -44,3 +43,13 @@
   width: 100%;
   transition: height 0.1s linear;
 }
+
+
+
+@media screen and (min-width: 1100px) {
+.bierPngContainer {
+
+  width: 13rem;
+
+}
+  }

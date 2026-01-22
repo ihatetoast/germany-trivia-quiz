@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import ProgressBier from '../ui/ProgressBier';
 export default function Timer({ duration, onTimesUp, answerState }) {
-  const [isMobile] = useState(window.innerWidth < 768); 
+  const [isMobile] = useState(window.innerWidth < 900); 
   const [timeRemaining, setTimeRemaining] = useState(duration);
 
   useEffect(() => {
@@ -29,8 +29,8 @@ export default function Timer({ duration, onTimesUp, answerState }) {
       id='timer-progress-bar'
       className={!questionIsEvaluated ? '' : 'hidden'}
     >
-      {isMobile && <progress  className="progress-bar" max={duration} value={timeRemaining} />}
-      {!isMobile && <ProgressBier className="progress-beer" duration={duration} timeRemaining={timeRemaining}/>}
+      {isMobile && <progress aria-label="Time remaining"  max={duration} value={timeRemaining} />}
+      {!isMobile && <ProgressBier duration={duration} timeRemaining={timeRemaining}/>}
     </div>
   );
 }

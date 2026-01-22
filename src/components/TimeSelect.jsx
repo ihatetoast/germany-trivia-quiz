@@ -1,6 +1,5 @@
-import { Icon, Turtle } from 'lucide-react';
-import { wavesSharkFin, unicornHead, lemon, sausage  } from '@lucide/lab';
-
+import { Icon } from 'lucide-react';
+import { wavesSharkFin, unicornHead, lemon, sausage } from '@lucide/lab';
 
 import { useEffect, useState, useRef } from 'react';
 
@@ -12,14 +11,39 @@ const TimeSelect = ({ onSelect }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState(null);
 
-  const dropdownRef = useRef(false);
+  const dropdownRef = useRef(null);
 
   const options = [
-     { value: '500', icon: '📝', label: 'TEST' },
-    { value: '0', icon: <Icon iconNode={unicornHead}  className={classes.icon} color="#00A3A3" />, label: 'Untimed and chill' },
-    { value: '20', icon: <Icon iconNode={lemon} className={classes.icon} color="#B38F00"/>, label: 'Easy peasy lemon squeezy' },
-    { value: '10', icon: <Icon iconNode={sausage} className={classes.icon} color="#894f02" />, label: 'Not too fast. Not too slow.' },
-    { value: '5', icon: <Icon iconNode={wavesSharkFin} className={classes.icon} color="#dd0000" />, label: 'Terrifying' },
+    {
+      value: '0',
+      icon: (
+        <Icon iconNode={unicornHead} className={classes.icon} color='#00A3A3' />
+      ),
+      label: 'Untimed and chill',
+    },
+    {
+      value: '20',
+      icon: <Icon iconNode={lemon} className={classes.icon} color='#B38F00' />,
+      label: 'Easy peasy lemon squeezy',
+    },
+    {
+      value: '10',
+      icon: (
+        <Icon iconNode={sausage} className={classes.icon} color='#894f02' />
+      ),
+      label: 'Not too fast. Not too slow.',
+    },
+    {
+      value: '5',
+      icon: (
+        <Icon
+          iconNode={wavesSharkFin}
+          className={classes.icon}
+          color='#dd0000'
+        />
+      ),
+      label: 'Terrifying',
+    },
   ];
 
   // if someone opens but doesn't choose (clicks off)
@@ -30,7 +54,8 @@ const TimeSelect = ({ onSelect }) => {
       }
     }
     document.addEventListener('pointerdown', handleClickOutside); // all incl
-    return () => document.removeEventListener('pointerdown', handleClickOutside);
+    return () =>
+      document.removeEventListener('pointerdown', handleClickOutside);
   }, []);
 
   function handleSelect(option) {
@@ -40,13 +65,19 @@ const TimeSelect = ({ onSelect }) => {
   }
 
   return (
-    <div className={classes.timerselectContainer } ref={dropdownRef}>
-      <p>Go easy without a timer or challenge yourself by choosing a time limit (default is untimed).</p>
+    <div className={classes.timerselectContainer} ref={dropdownRef}>
+      <p>
+        Go easy without a timer or challenge yourself by choosing a time limit
+        (default is untimed).
+      </p>
       <label id='time-select-label'>Choose a difficulty level</label>
       <Button
-        className={classes.customSelectButton}
+        className={classes.customSelectBtn}
         aria-labelledby='time-select-label'
         handleClick={() => setIsOpen(!isOpen)}
+        onKeyDown={(e) => {
+          if (e.key === 'Escape') setIsOpen(false);
+        }}
         aria-expanded={isOpen}
         aria-haspopup='listbox'
       >
@@ -56,7 +87,7 @@ const TimeSelect = ({ onSelect }) => {
             <span className={classes.optionLabel}>{selected.label}</span>
           </>
         ) : (
-          'Choose level ...'
+          'Select...'
         )}
       </Button>
       {isOpen && (
@@ -66,12 +97,17 @@ const TimeSelect = ({ onSelect }) => {
               key={option.value}
               className={classes.customSelectOption}
               onClick={() => handleSelect(option)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  handleSelect(option);
+                }
+              }}
               role='option'
+              tabIndex={0}
               aria-selected={selected?.value === option.value}
             >
-              <span aria-hidden='true'>
-                {option.icon}
-              </span>
+              <span aria-hidden='true'>{option.icon}</span>
               <span className={classes.optionLabel}>{option.label}</span>
             </li>
           ))}

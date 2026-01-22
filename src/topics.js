@@ -2,13 +2,13 @@ export default [
   {
     id: '1',
     topic: 'German capital cities',
+    type: 'cities',
     resultsImg: {
       src: '/images/map-304071_1280.png',
       alt: "Map of Germany showing the states' borders",
       srcMob: '/images/germany-29222_1280.png',
       altMob: "Map of Germany showing the states' borders",
     },
-
     questions: [
       {
         id: 'stuttgart',

@@ -20,25 +20,23 @@ export default function Answers({
   return (
     <div className={classes.answerOptionsContainer}>
       <Card className={classes.answerCard}>
-        <ul id='answer-options'>
-          {shuffledAnswerOptions.current.map((ans, idx) => {
+        <ul className={classes.answerOptions}>
+          {shuffledAnswerOptions.current.map((ans) => {
             const btnIsSelected = selectedAnswer === ans; // target clicked button
 
-            let btnClasses = 'answer-btn';
-
-            if (answerState === 'answered' && btnIsSelected) {
-              btnClasses = btnClasses + ' answered';
-            }
-
-            if (
-              (answerState === 'correct' || answerState === 'incorrect') &&
-              btnIsSelected
-            ) {
-              btnClasses = btnClasses + ' ' + answerState;
+            let btnClasses = classes.answerBtn;
+            if (btnIsSelected) {
+              if (answerState === 'answered') {
+                btnClasses += ` ${classes.answered}`;
+              } else if (answerState === 'correct') {
+                btnClasses += ` ${classes.correct}`;
+              } else if (answerState === 'incorrect') {
+                btnClasses += ` ${classes.incorrect}`;
+              }
             }
 
             return (
-              <li key={idx} className='answer'>
+              <li key={ans} className={classes.answer}>
                 <Button
                   handleClick={() => onSelect(ans)}
                   className={btnClasses}
@@ -49,23 +47,19 @@ export default function Answers({
               </li>
             );
           })}
-         
         </ul>
-         
-      </Card>    <div className={classes.skipPlaceholder}>
-{addSkip && (
- 
-              <Button
-                className={classes.skipBtn}
-                handleClick={() => onSelect(null)}
-                disabled={answerState !== ''}
-              >
-                SKIP
-              </Button>
-   
-          )}
+      </Card>
+      <div className={classes.skipPlaceholder}>
+        {addSkip && (
+          <Button
+            className={classes.skipBtn}
+            handleClick={() => onSelect(null)}
+            disabled={answerState !== ''}
+          >
+            SKIP
+          </Button>
+        )}
       </div>
-      
     </div>
   );
 }

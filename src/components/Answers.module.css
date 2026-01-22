@@ -8,33 +8,113 @@
   background: var(--white);
 }
 
+.answerOptions {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.answer {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.answerBtn {
+  background: var(--black);
+  box-shadow: 0 0 5px var(--grey-shadow);
+  color: white;
+  font-size: 1.25rem;
+  transition: 0.5s;
+}
+
+.answerBtn:hover,
+.answerBtn:focus {
+  background: var(--grey);
+  transform: scale(1.01);
+  transition: all 0.2s ease;
+}
+
+.answerBtn:focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: 2px;
+  background: var(--white); 
+  color: var(--black);
+}
+
+
+.answer .answerBtn {
+  display: inline-block;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.answerBtn.answered {
+  border: 1px solid var(--green-light);
+}
+
+.answerBtn.correct {
+  color: var(--gold);
+  border-color: var(--gold);
+  animation: correct-jump 0.5s;
+}
+.answerBtn.incorrect {
+  color: var(--red);
+  border-color: var(--red-accent);
+  animation: incorrect-shake 0.5s;
+}
+
+/* katy 
+
+
+
+.correctBtn:focus-visible,
+.incorrectBtn:focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: 2px;
+  background: var(--white); 
+}
+
+
+
+*/
+
+
+
+
+
 .skipPlaceholder {
-  height: 4rem;
+  height: 4rem; /* reserve space for skip button to prevent shiftin  */
   padding-top: 1rem;
 }
 
 .skipBtn {
   background: var(--gold);
-  padding: .5rem;
+  padding: 0.5rem;
   width: 10rem;
-    position: relative;
-    transition: all 0.2s linear 0s;
+  position: relative;
+  transition: all 0.2s linear 0s;
 }
+/* show a kangaroo. skippy was a kangaroo star like lassie */
+/* this effect will not appear at mobile  */
 .skipBtn::before {
-content: "🦘";
-position: absolute;
-top: -3px;
-font-size: 1.5rem;
-transform: scaleX(-1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    right: 0;
-    top: 0;
-    opacity: 0;
-    height: 100%;
-    width: 40px;
-    transition: all 0.2s linear 0s;
+  content: '🦘';
+  position: absolute;
+  top: -3px;
+  font-size: 1.5rem;
+  transform: scaleX(-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 0;
+  top: 0;
+  opacity: 0;
+  height: 100%;
+  width: 40px;
+  transition: all 0.2s linear 0s;
 }
 
 .skipBtn:hover {
@@ -47,11 +127,64 @@ transform: scaleX(-1);
   text-indent: 0px;
 }
 
+.skipBtn:focus {
+  background: var(--white);
+  outline: none;
+}
+
+.skipBtn:focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: 2px;
+}
+
+
 
 @media screen and (min-width: 768px) {
   .answerOptionsContainer {
-  max-width: 500px;
-  width: 50%;
+    max-width: 500px;
+    width: 50%;
+  }
+    .answer .answerBtn {
+    font-size: 1.35rem;
+  }
 }
 
+
+
+/* ANIMATIONS  */
+
+@keyframes incorrect-shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(4px);
+  }
+  50% {
+    transform: translateX(-4px);
+  }
+  75% {
+    transform: translateX(4px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes correct-jump {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(4px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+  75% {
+    transform: translateY(4px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }

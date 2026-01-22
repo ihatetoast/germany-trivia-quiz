@@ -55,7 +55,7 @@ export default function QuizQuestion({
           selectedAnswer: answer,
           isCorrect: isCorrect,
         });
-        setAnswerState(isCorrect ? 'correct' : 'incorrect')
+        setAnswerState(isCorrect ? 'correct' : 'incorrect');
         setTimeout(() => {
           handleAnswerClick(answer);
         }, TIME_TO_NEXT_QUESTION);
@@ -75,14 +75,14 @@ export default function QuizQuestion({
       answerState={answerState}
     />
   );
-  const quizImage = (
+  const quizImage = question.image ? (
     <div className={classes.questionImage}>
       <img src={question.image} alt={question.imageAlt} />
     </div>
-  );
-
+  ) : null;
+// note for a11y knowledge aria-live="polite" announces updates to dynamic comps
   return (
-    <div className={classes.quizQuestionContainer}>
+    <div className={classes.quizQuestionContainer} aria-live="polite">
       <div className={classes.quizQuestionIntro}>
         {timed && <div className={classes.timer}> {quizTimer} </div>}
         <div className={classes.quizQuestion}>

@@ -9,14 +9,10 @@ import GenericResultsContent from './GenericResultsContent.jsx';
 
 export default function QuizPage({ timerVal, questionData, restartQuiz }) {
   const [usersAnswers, setUsersAnswers] = useState([]);
-  // note to remember in the future--if you can, derive. derive until you run out geyassoline
-  // length number is number of answered + 1 (bc of 0 idx)
-  // i.e. if there are two (len is 2), the next question is at 0, 1, 2 (the third/next q)
   const currentQuestionIdx = usersAnswers.length;
-
   const quizCompleted = questionData.questions.length === currentQuestionIdx;
 
-  // useCallback to avoid recreating fcn on rerendering when user picks and answer
+  // NOTE: useCallback to avoid recreating fcn on rerendering when user picks an answer
   const handleSelectUserAnswer = useCallback(function handleSelectUserAnswer(
     answer
   ) {
@@ -34,65 +30,60 @@ export default function QuizPage({ timerVal, questionData, restartQuiz }) {
   const quizLength = usersAnswers.length;
 
   // right
-  const rLength = usersAnswers.filter(
+  const correctCount = usersAnswers.filter(
     (ans, i) => ans === questionData.questions[i].answers[0]
   ).length;
-  const rPct = getPercentageStr(rLength, quizLength, 1);
+  const correctPct = getPercentageStr(correctCount, quizLength, 1);
   // skip
-  const sLength = usersAnswers.filter((ans) => ans === null).length;
-  const sPct = getPercentageStr(sLength, quizLength, 1);
+  const skippedCount = usersAnswers.filter((ans) => ans === null).length;
+  const skippedPct = getPercentageStr(skippedCount, quizLength, 1);
   // wrong
-  const wLength = quizLength - rLength - sLength;
-  const wPct = getPercentageStr(wLength, quizLength, 1);
+  const incorrectCount = quizLength - correctCount - skippedCount;
+  const wrongPct = getPercentageStr(incorrectCount, quizLength, 1);
 
   function getPercentageStr(part, whole, decimal) {
-    const pString = `${((part / whole) * 100).toFixed(decimal)}%`;
-    return pString;
+    if(whole === 0) return '0%';
+    return `${((part / whole) * 100).toFixed(decimal)}%`;
   }
+
   const resultData = [
     {
-      name: 'right',
-      count: rLength,
-      percentage: rPct,
+      name: 'correct',
+      count: correctCount,
+      percentage: correctPct,
       color: 'var(--black)',
     },
     {
-      name: 'wrong',
-      count: wLength,
-      percentage: wPct,
+      name: 'incorrect',
+      count: incorrectCount,
+      percentage: wrongPct,
       color: 'var(--red)',
     },
     {
-      name: 'skip',
-      count: sLength,
-      percentage: sPct,
+      name: 'skipped',
+      count: skippedCount,
+      percentage: skippedPct,
       color: 'var(--gold)',
     },
   ];
 
-  // results will have some data (percentage) and the right answers
-  // the german states answers will show the map.Any other quiz will just be answers
+  // results will have some data (percentage) and the questions with right and/or wrong answers
+  // the german states answers will show the map (complete map on mob, map with capitalBoxes revealed on a click)
   const capCitiesResults = (
     <CitiesResultsContent
       usersAnswers={usersAnswers}
       questions={questionData.questions}
-      rightCount={rLength}
-      imageData={{
-        image: questionData.resultsImg,
-        imageAlt: questionData.resultsImgAlt,
-      }}
+      rightCount={correctCount}
+      imageData={questionData.resultsImg}
     />
   );
 
-  // results will have two sections: stats and answers.
+
   const genericResults = (
     <GenericResultsContent
       usersAnswers={usersAnswers}
       questions={questionData.questions}
-      imageData={{
-        image: questionData.resultsImg,
-        imageAlt: questionData.resultsImgAlt,
-      }}
+      imageData={questionData.resultsImg}
     />
   );
 
@@ -103,7 +94,7 @@ export default function QuizPage({ timerVal, questionData, restartQuiz }) {
         resultData={resultData}
         restartQuiz={restartQuiz}
       >
-        {questionData.topicTitle === 'German capital cities'
+        {questionData.type === 'cities'
           ? capCitiesResults
           : genericResults}
       </Results>
@@ -120,7 +111,6 @@ export default function QuizPage({ timerVal, questionData, restartQuiz }) {
         onNotAnswered={handleNotAnswered}
         handleAnswerClick={handleSelectUserAnswer}
       />
-      {}
     </div>
   );
 }

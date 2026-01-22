@@ -3,6 +3,11 @@ import Button from '../ui/Button';
 import classes from './Results.module.css';
 
 export default function Results({ title, resultData, restartQuiz, children }) {
+    const icons = {
+    correct: <Laugh />,
+    skipped:  <Meh />,
+    incorrect:  <Frown />,
+  }
   return (
     <div id='results' className={classes.results}>
       <section id='stats' className={classes.statsContainer}>
@@ -10,26 +15,17 @@ export default function Results({ title, resultData, restartQuiz, children }) {
           <h2>{title}</h2>
           <div className={classes.barchart}>
             {resultData.map((res) => {
-              const icon =
-                res.name === 'right' ? (
-                  <Laugh />
-                ) : res.name === 'skip' ? (
-                  <Meh />
-                ) : (
-                  <Frown />
-                );
               return (
                 <div key={res.name} className={classes.resultItem}>
-                  <div>
+                  <div className={classes.barDescription}>
                     <div className={classes.iconNameContainer}>
-                      <span className={classes.icon}>{icon}</span>
+                      <span className={classes.icon} aria-hidden="true">{icons[res.name]}</span>
                       <span className={classes.name}>{res.name}</span>
                     </div>
                     <div className={classes.score}>{res.percentage}</div>
                   </div>
                   <div className={classes.barContainer}>
                     <div
-                      key={res.name}
                       className={classes.barGraphBar}
                       style={{
                         '--bar-width': res.percentage,

@@ -1,8 +1,7 @@
-import wurst from '../assets/images/sausage-5448952_1280.png';
 
 import classes from './Header.module.css';
-
-export default function Header({ topic, children }) {
+// handle the image. pass from App?
+export default function Header({ topic, image, imageAlt}) {
   return (
     <header className={classes.header}>
       <div>
@@ -10,13 +9,12 @@ export default function Header({ topic, children }) {
         <p>{`Test your knowledge on ${topic}`}</p>
       </div>
       <div className={classes.imageContainer}>
-<img
-        className={classes.image}
-        src={wurst}
-        alt='a sausage in sunglasses smiling and giving the thumbs up'
-      />
+        <img
+          className={classes.image}
+          src={image}
+          alt={imageAlt}
+        />
       </div>
-      {children}
     </header>
   );
 }

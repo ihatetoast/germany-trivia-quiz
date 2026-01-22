@@ -21,14 +21,18 @@
 .barchart {
   display: flex;
   flex-direction: column;
-  width: 290px;
+  width: min(290px, 95%);
   margin: 0 auto;
 }
 
 .resultItem {
   display: grid;
-  grid-template-columns: 5rem 1fr;
+  grid-template-columns: minmax(5rem, auto) 1fr;
   height: 24px;
+}
+
+.barDescription {
+  width: 5.5rem;
 }
 
 .iconNameContainer {
@@ -47,7 +51,6 @@
 }
 .score {
   margin-left: 1.5rem;
-  display: flex;
   justify-content: flex-start;
   display: none;
 }

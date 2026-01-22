@@ -31,8 +31,7 @@
   position: relative;
 }
 
-.quizQuestionIntro,
-.quizQuestionContainer {
+.quizQuestionIntro {
   padding: 0.25rem;
 }
 
@@ -83,18 +82,14 @@
     margin-left: 1rem;
   }
 
-  .timer {
-    position: absolute;
-    left: 70%;
-    top: 100%;
-  }
+
 }
 
 @media screen and (min-width: 900px) {
   .timer {
     position: absolute;
-    left: 70%;
-    top: 130%;
+    right: 1%;
+    top: 110%;
   }
 }
 
@@ -104,4 +99,8 @@
     width: 60%;
     max-width: 58rem;
   }
+  .timer {
+    right: 10%;
+  }
+
 }

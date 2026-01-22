@@ -1,8 +1,7 @@
 import bierstein from '../assets/images/beer-309778_1280.png';
 import classes from './ProgressBier.module.css';
 
-export default function ProgressBier({ timeRemaining,duration }) {
-
+export default function ProgressBier({ timeRemaining, duration }) {
   const progress = timeRemaining / duration;
 
   return (
@@ -15,7 +14,7 @@ export default function ProgressBier({ timeRemaining,duration }) {
       </div>
       <div className={classes.biersteinColor}></div>
       <div className={classes.bierstein}>
-        <img src={bierstein} alt='empty bierstein' />
+        <img src={bierstein} alt='empty beer stein outline' />
       </div>
     </div>
   );

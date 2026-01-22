@@ -1,18 +1,4 @@
-/* german flag colours: 
-https://www.flagcolorcodes.com/germany
-schwartz #000 rgb(0, 0, 0)
-rot #dd0000 rgb(221, 0, 0). https://www.colorhexa.com/dd0000
-gold # ffcc00 rgb(255, 204, 0) https://www.colorhexa.com/ffcc00
-
-triadic color to gold: #00ffcc
-complementary to red: #00dddd
-
-although white and black are easy, keep as vars in case 
-i decide to have a black-flag and black and off-white and white
-*/
-
 :root {
-  /* official flag colors  */
   --black: #000000;
   --very-light-grey: #d6d4d4;
   --light-grey: #999999;
@@ -23,7 +9,7 @@ i decide to have a black-flag and black and off-white and white
   --gold: #ffcc00;
   --gold-accent: #ffea9a;
   --blue: #00dddd;
-  --green-light: #00ffcc;
+  --green-light: #00e03c;
   --white: #fff;
   --off-white: #e2e2e2;
   --serif: 'Domine', serif;
@@ -118,36 +104,15 @@ ul {
   flex: 1;
 }
 
-/* QUIZBOARD no need for module*/
+/* QUIZBOARD */
 .quiz-board {
   background-color: #fff;
-  box-shadow: 1px 1px 4px 1px var(--gold-accentgrey-shadow);
+  box-shadow: 1px 1px 4px 1px var(--grey-shadow);
   border-radius: var(--border-radius);
   text-align: center;
 }
 
-#answer-options {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.answer {
-  width: 100%;
-  margin: 0 auto;
-}
-
-.answer .answer-btn {
-  display: inline-block;
-  width: 100%;
-  font-size: 1rem;
-}
-
-/* BUTTONS USED TO START GAME AND AS ANSWERS  */
+/* BUTTONS  */
 .btn {
   display: flex;
   margin: 0 auto;
@@ -163,97 +128,32 @@ ul {
 .start-btn {
   background: var(--red);
   transition: 0.5s;
-  background-size: 200% auto;
   color: #fff;
   display: block;
   font-size: 1rem;
 }
 
 .start-btn:hover {
-  background-position: right center; /* change the direction of the change here */
-  color: #fff;
-  text-decoration: none;
+  background: var(--red-accent);
+  transform: scale(1.02);
+  transition: all 0.2s ease;
 }
 
-.answer-btn {
-  background: var(--black);
-}
-.answer-btn {
-  background-size: 200% auto;
-  box-shadow: 0 0 5px var(--grey-shadow);
-  color: white;
-  font-size: 1.25rem;
-  transition: 0.5s;
+.start-btn:focus {
+  background: var(--red-accent);
+  transform: scale(1.02);
+  transition: all 0.2s ease;
+  outline: none;
 }
 
-.answer-btn:hover {
-  background-position: right center; /* change the direction of the change here */
-  color: #fff;
-  text-decoration: none;
+.start-btn:focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: 2px;
 }
-
-/* figure something else out.  */
-/* font color is just for now to check if clicked and right/wrong work */
-.answer-btn.answered {
-  border: 1px solid var(--green-light);
-}
-.answer-btn.correct {
-  color: var(--gold);
-  border-color: var(--gold);
-  animation: correct-jump 0.5s;
-}
-.answer-btn.incorrect {
-  color: var(--red);
-  border-color: var(--red-accent);
-  animation: incorrect-shake 0.5s;
-}
-
-/* CUSTOM SELECT NOT IN MODULE  */
 
 /* TIMERS PROGRESS BAR AND BEER  */
 #timer-progress-bar.hidden {
   visibility: hidden;
-}
-
-/* max-width: 20rem;
-  width: 100%; */
-
-/* ANIMATIONS  */
-
-@keyframes incorrect-shake {
-  0% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(4px);
-  }
-  50% {
-    transform: translateX(-4px);
-  }
-  75% {
-    transform: translateX(4px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-@keyframes correct-jump {
-  0% {
-    transform: translateY(0);
-  }
-  25% {
-    transform: translateY(4px);
-  }
-  50% {
-    transform: translateY(-4px);
-  }
-  75% {
-    transform: translateY(4px);
-  }
-  100% {
-    transform: translateY(0);
-  }
 }
 
 @media screen and (min-width: 768px) {
@@ -276,9 +176,11 @@ ul {
   .quiz-board {
     max-width: unset;
   }
+}
 
-  .answer .answer-btn {
-    font-size: 1.35rem;
+@media screen and (min-width: 900px) {
+  main {
+    min-height: 150vh;
   }
 }
 
