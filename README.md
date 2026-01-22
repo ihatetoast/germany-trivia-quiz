@@ -13,14 +13,21 @@ Custom components:
 
 * Quiz face is ARIA compliant
 
+![Topic Selection](./screenshots/topic-selection-d.png)
 
-Topic selection screen
+Bierstein used as a timer on desktop: 
+![Quiz question with timer](./screenshots/question-beer-timer-d.png)
+![Quiz question with timer](./screenshots/question-beer-timer-d-2.png)
 
-Quiz question with timer (show the beer stein!)
-Results bar chart
-Desktop map interaction (with capital box visible)
-Mobile results view
+Bar chart as flag
+![Results bar chart - desktop](./screenshots/general-results-bar-graph.png)
+![Results bar chart - mobile](./screenshots/general-results-bargraph-mob.png)
 
+Cities results:
+![Cities results, missed question clicked to show loc- desktop](./screenshots/cities-results-wrong-ans-d.png)
+![RCities results, correct question clicked to show loc- desktop](./screenshots/cities-results-right-ans-d.png)
+![Cities results, map - mobile](./screenshots/cities-results-map-mobile.png)
+![RCities results, missed questions only - mob](./screenshots/cities-results-wrongans-mob.png)
 
 
 ## Why
