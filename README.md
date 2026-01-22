@@ -7,6 +7,8 @@ A trivia game covering German trivia. The user can choose a topic (capital citie
 Custom components:
 * TimeSelect allows me to have a select/dropdown that I can style more freely. I used aria labels to help define this as a select/dropdown
 
+* Results displayed visually with a bar graph that matches the flag
+
 * ProgressBier is a progress bar substitute for desktop. In lieu of a progressbar, I have a Bierstein with beer that depletes as the time counts down. This app looks for window innerwidth to determine if the custom ProgressBier appears. It will still be there on resizing. I opted not to fuss too much making that one part of the app mobile friendly. I do not see a user resizing in the middle of a quiz. While I won't have it break, I won't sweat too much about the look of the ProgressBier on resizing. On load, the standard bar appears at mobile because it's small. In future iterations, it will be replace by the mobile-friendly ProgressWurst.
 
 ## Why
