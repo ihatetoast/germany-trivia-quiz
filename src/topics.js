@@ -389,7 +389,7 @@ export default [
       },
       {
         id: 't2q15',
-        question: 'A chilled no-bake chocolate dessert with layers of cookies, coconut oil and chocolat is called ...?',
+        question: 'A chilled no-bake chocolate dessert with layers of cookies, coconut oil and chocolate is called ...?',
         answers: [
           'Kalter Hund (cold dog)',
           'Freche Katze (sassy cat)',
