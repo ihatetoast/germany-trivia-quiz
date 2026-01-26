@@ -187,6 +187,8 @@ ul {
 @media screen and (min-width: 1030px) {
   .btn-cards-container {
     grid-template-columns: repeat(3, minmax(300px, 1fr));
+    max-width: 1200px;
+    margin: 0 auto;
   }
 }
 
